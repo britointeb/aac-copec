@@ -59,3 +59,10 @@ Edite os textos em index.html e os estilos próprios em copec.css.
 Para hospedar, copie a pasta completa para uma hospedagem estática.
 Não há dependências externas, instalação ou etapa de compilação.
 Esta entrega é local, no destino solicitado pelo usuário.
+
+REVISÃO DA VERSÃO 1
+Redação explicativa direta, sem expressões de atribuição ao roteiro.
+Cabeçalho com COLOG à esquerda, identidade textual central e AAC à direita.
+Título institucional editado pelo usuário preservado.
+Impressão prepara as imagens e expande as explicações e os detalhes.
+Alocação por função permanece sujeita à validação institucional.

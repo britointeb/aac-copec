@@ -66,7 +66,26 @@
       });
     });
   });
-  $('#print-button').addEventListener('click', () => window.print());
+  const printButton = $('#print-button');
+  printButton.addEventListener('click', async () => {
+    if (printButton.disabled) return;
+    printButton.disabled = true;
+    printButton.textContent = 'Preparando…';
+    try {
+      // Carregar também as imagens fora da tela antes de abrir a impressão.
+      await Promise.all($$('img').map(async image => {
+        image.loading = 'eager';
+        if (image.decode) await image.decode().catch(() => {});
+      }));
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      printButton.disabled = false;
+      printButton.textContent = 'Imprimir';
+      window.print();
+    } finally {
+      printButton.disabled = false;
+      printButton.textContent = 'Imprimir';
+    }
+  });
   let detailsBeforePrint = [];
   window.addEventListener('beforeprint', () => {
     detailsBeforePrint = $$('details').map(item => [item, item.open]);
