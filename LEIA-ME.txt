@@ -1,0 +1,61 @@
+COLOG / AAC — CRIAÇÃO DA COPEC — SITE V1
+13 de outubro de 2026
+
+COMO ABRIR
+Abra index.html no navegador. Mantenha os arquivos CSS, app.js e assets
+na mesma pasta. O conteúdo e as interações funcionam sem internet.
+Os links de consulta ao Google Drive exigem acesso à internet.
+
+CONTEÚDO
+Apresentação em 14 tópicos e cinco blocos, baseada no arquivo
+INSTRUCOES_ASSUNTO_CRIACAO_COPEC.docx fornecido pelo usuário.
+1. Diagnóstico e gargalos históricos.
+2. AAC, capacitação científica e referência da COPAC.
+3. Proposta de identidade, organograma e pessoal da COPEC.
+4. Guarda do processo, marco de transferência e institucionalização.
+5. Resultados estratégicos e estado final desejado.
+
+INTERAÇÕES
+Menu lateral com acompanhamento do capítulo em leitura.
+Botão para recolher e reabrir o menu no computador e no celular.
+Busca por assunto pela lupa ou pela tecla /.
+Abas para pilares, núcleos, fases e marco de transferência.
+Setas do teclado, Home e End alternam as abas.
+Seções expansíveis para portfólio, siglas e fontes.
+Controle de animações e respeito ao movimento reduzido do sistema.
+Botão Imprimir com expansão dos painéis e dos detalhes para impressão.
+
+BASE VISUAL
+Layout, fontes, cores, navegação e controles adaptados de site-gcv-v7.
+Preservados preto, branco, dourado e os destaques em azul e verde.
+Símbolos institucionais e imagens usados a partir do acervo fornecido.
+Arial Rounded MT Bold nos títulos, com alternativas do sistema.
+Textos, tabelas e diagramas permanecem editáveis em HTML e CSS.
+
+NOTAS DE CONTEÚDO
+O documento apresenta uma proposta de criação da COPEC. A página não
+afirma a existência de um ato de criação já aprovado.
+Os dados da estrutura atual e dos trabalhos refletem o documento-base.
+O total de 21 militares (1 Oficial-General, 10 Oficiais Superiores,
+6 Tenentes e 4 Sargentos) foi preservado.
+A distribuição por função não foi fornecida no anexo. A matriz exibida
+é uma ALOCAÇÃO INDICATIVA PARA VALIDAÇÃO, com os totais conferidos.
+Os benefícios jurídicos são apresentados como resultados esperados,
+sem prometer imunidade a riscos, responsabilização ou controle.
+SLI é explicitado conforme o contexto: Suporte Logístico Inicial no
+marco de transferência; Suporte Logístico Integrado no núcleo proposto.
+A guarda dos processos contratuais não se confunde com a transferência
+da responsabilidade integral pelo SMEM para as Chefias de Material.
+
+ARQUIVOS
+index.html: conteúdo da apresentação.
+styles.css e tema-colog.css: estilos preservados da página de referência.
+copec.css: layout e componentes próprios da apresentação COPEC.
+app.js: navegação, busca, abas, acessibilidade e impressão.
+assets/: símbolos, imagens e cópia do documento-base para consulta.
+
+EDIÇÃO E PUBLICAÇÃO
+Edite os textos em index.html e os estilos próprios em copec.css.
+Para hospedar, copie a pasta completa para uma hospedagem estática.
+Não há dependências externas, instalação ou etapa de compilação.
+Esta entrega é local, no destino solicitado pelo usuário.
