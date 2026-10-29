@@ -1,68 +1,62 @@
-COLOG / AAC — CRIAÇÃO DA COPEC — SITE V1
-13 de outubro de 2026
+SITE COPEC — VERSÃO 2
 
 COMO ABRIR
-Abra index.html no navegador. Mantenha os arquivos CSS, app.js e assets
-na mesma pasta. O conteúdo e as interações funcionam sem internet.
-Os links de consulta ao Google Drive exigem acesso à internet.
+Abra index.html em um navegador atual. Mantenha os arquivos CSS, app.js e a
+pasta assets junto ao HTML. Não há instalação nem etapa de compilação.
 
-CONTEÚDO
-Apresentação em 14 tópicos e cinco blocos, baseada no arquivo
-INSTRUCOES_ASSUNTO_CRIACAO_COPEC.docx fornecido pelo usuário.
-1. Diagnóstico e gargalos históricos.
-2. AAC, capacitação científica e referência da COPAC.
-3. Proposta de identidade, organograma e pessoal da COPEC.
-4. Guarda do processo, marco de transferência e institucionalização.
-5. Resultados estratégicos e estado final desejado.
+ESTRUTURA
+Introdução — propósito da criação da COPEC, sem numeração de bloco.
+Bloco 1 — Diagnóstico: 1.1 Diagnóstico histórico; 1.2 Limites do modelo.
+Bloco 2 — Base técnica: 2.1 AAC; 2.2 Capacitação; 2.3 Articulação e COPAC.
+Bloco 3 — Propostas da COPEC:
+  3.1 Identidade (Proposta 1).
+  3.2 Estrutura e núcleos (Proposta 2).
+  3.3 Guarda do processo (Proposta 3).
+  3.4 Marco de transferência (Proposta 4).
+  3.5 Efetivo (Proposta 5).
+  3.6 Formalização e instalações.
+Bloco 4 — Resultados: 4.1 Impacto estratégico; 4.2 Estado final desejado.
 
-INTERAÇÕES
-Menu lateral com acompanhamento do capítulo em leitura.
-Botão para recolher e reabrir o menu no computador e no celular.
-Busca por assunto pela lupa ou pela tecla /.
-Abas para pilares, núcleos, fases e marco de transferência.
-Setas do teclado, Home e End alternam as abas.
-Seções expansíveis para portfólio, siglas e fontes.
-Controle de animações e respeito ao movimento reduzido do sistema.
-Botão Imprimir com expansão dos painéis e dos detalhes para impressão.
-
-BASE VISUAL
-Layout, fontes, cores, navegação e controles adaptados de site-gcv-v7.
-Preservados preto, branco, dourado e os destaques em azul e verde.
-Símbolos institucionais e imagens usados a partir do acervo fornecido.
-Arial Rounded MT Bold nos títulos, com alternativas do sistema.
-Textos, tabelas e diagramas permanecem editáveis em HTML e CSS.
-
-NOTAS DE CONTEÚDO
-O documento apresenta uma proposta de criação da COPEC. A página não
-afirma a existência de um ato de criação já aprovado.
-Os dados da estrutura atual e dos trabalhos refletem o documento-base.
-O total de 21 militares (1 Oficial-General, 10 Oficiais Superiores,
-6 Tenentes e 4 Sargentos) foi preservado.
-A distribuição por função não foi fornecida no anexo. A matriz exibida
-é uma ALOCAÇÃO INDICATIVA PARA VALIDAÇÃO, com os totais conferidos.
-Os benefícios jurídicos são apresentados como resultados esperados,
-sem prometer imunidade a riscos, responsabilização ou controle.
-SLI é explicitado conforme o contexto: Suporte Logístico Inicial no
-marco de transferência; Suporte Logístico Integrado no núcleo proposto.
-A guarda dos processos contratuais não se confunde com a transferência
-da responsabilidade integral pelo SMEM para as Chefias de Material.
+ALTERAÇÕES SOLICITADAS NO PROMPT_MOD_1.docx
+Numeração sem zeros à esquerda e tópicos identificados pelo bloco.
+Introdução separada dos blocos numerados.
+Divisões visuais entre os quatro blocos e menu reorganizado.
+Fundos claros no conteúdo e nos diagramas, com textos escuros.
+Cabeçalho, menu lateral e rodapé mantêm as cores originais da V1.
+Símbolo COPEC incorporado à identidade proposta e ao encerramento.
+Cinco propostas reunidas no Bloco 3, na sequência 1 a 5.
+Quadro “Novos desafios, novas instalações...” após a formalização.
+Slogan acima da foto; ambos abrem a apresentação no link informado.
+O símbolo COPEC e a foto foram extraídos do anexo, sem alterar as imagens.
 
 ARQUIVOS
-index.html: conteúdo da apresentação.
-styles.css e tema-colog.css: estilos preservados da página de referência.
-copec.css: layout e componentes próprios da apresentação COPEC.
-app.js: navegação, busca, abas, acessibilidade e impressão.
-assets/: símbolos, imagens e cópia do documento-base para consulta.
+index.html — conteúdo e estrutura.
+styles.css, tema-colog.css, copec.css — estilos herdados da V1.
+copec-v2.css — alterações visuais da V2; carregado por último.
+app.js — navegação, abas, busca, animações e impressão.
+assets/ — imagens e material de referência herdados da V1, mais os dois
+arquivos do anexo: copec.png e instalacoes-bloco-h.jpeg.
 
-EDIÇÃO E PUBLICAÇÃO
-Edite os textos em index.html e os estilos próprios em copec.css.
-Para hospedar, copie a pasta completa para uma hospedagem estática.
-Não há dependências externas, instalação ou etapa de compilação.
-Esta entrega é local, no destino solicitado pelo usuário.
+USO
+O menu pode ser recolhido. A lupa e a tecla / abrem a busca.
+As abas aceitam clique, toque, setas, Home e End.
+Esc fecha a busca e o menu no celular.
+O botão Imprimir prepara as imagens e expande os detalhes.
+O site funciona localmente; o link da apresentação requer internet e as
+permissões de acesso que já estiverem definidas no arquivo do Google Drive.
 
-REVISÃO DA VERSÃO 1
-Redação explicativa direta, sem expressões de atribuição ao roteiro.
-Cabeçalho com COLOG à esquerda, identidade textual central e AAC à direita.
-Título institucional editado pelo usuário preservado.
-Impressão prepara as imagens e expande as explicações e os detalhes.
-Alocação por função permanece sujeita à validação institucional.
+BASE
+Criado a partir de SITE_COPEC_V1 e das alterações em PROMPT_MOD_1.docx.
+A versão original foi preservada.
+Edição: 29 de outubro de 2026.
+
+ATUALIZAR O GITHUB
+Execute ATUALIZAR_AAC_COPEC_GITHUB.bat dentro desta pasta.
+O BAT usa automaticamente a pasta onde ele próprio está localizado.
+Todos os arquivos e subpastas são enviados à raiz de britointeb/aac-copec,
+exceto o próprio BAT e os metadados .git. Arquivos antigos ausentes nesta
+pasta são removidos do conteúdo atual do repositório.
+Confira a lista de alterações e digite PUBLICAR para confirmar o envio.
+Conclua o login no navegador se solicitado pelo Git Credential Manager.
+O histórico do Git e a pasta de origem são preservados. O backup anterior
+fica em %LOCALAPPDATA%\AAC-COPEC\Publicacoes.

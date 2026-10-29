@@ -178,12 +178,15 @@
   setMenu(!compactNav.matches);
 
   const chapters = $$('.section');
+  const scrollTargets = $$('.section, .copec-block-divider');
   let scrollQueued = false;
   function updateScroll() {
     const available = document.documentElement.scrollHeight - innerHeight;
     $('#page-progress').style.width = `${available > 0 ? Math.min(100, Math.round(scrollY / available * 100)) : 0}%`;
     let active = 'inicio';
-    chapters.forEach(section => { if (section.getBoundingClientRect().top < 180) active = section.id; });
+    scrollTargets.forEach(section => { if (section.getBoundingClientRect().top < 180) active = section.id; });
+    const activeBlock = document.getElementById(active).dataset.block;
+    $$('.nav-block').forEach(group => group.classList.toggle('is-current', group.dataset.block === activeBlock));
     $$('#main-nav a').forEach(link => {
       const selected = link.hash === `#${active}`;
       link.classList.toggle('active', selected);
@@ -202,7 +205,7 @@
   const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const searchSections = chapters.map((section, index) => ({
     id: section.id,
-    number: index + 1,
+    number: section.dataset.number || String(index + 1),
     label: section.dataset.label,
     title: section.querySelector('h1,h2').innerText.replace(/\s+/g, ' '),
     text: normalize(section.textContent)
@@ -215,7 +218,7 @@
     $('#search-status').textContent = !words.length ? 'Escolha um tema ou digite um termo para filtrar.' : `${found.length} ${found.length === 1 ? 'assunto encontrado' : 'assuntos encontrados'}.`;
     found.forEach(section => {
       const result = document.createElement('button'); result.className = 'search-result';
-      const number = document.createElement('span'); number.textContent = String(section.number).padStart(2, '0');
+      const number = document.createElement('span'); number.textContent = section.number;
       const content = document.createElement('span');
       const label = document.createElement('strong'); label.textContent = section.label;
       const title = document.createElement('small'); title.textContent = section.title;
