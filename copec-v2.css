@@ -45,6 +45,9 @@ body { background: #fff; color: #292e32; }
 .copec-strategy p { color: #526572; }
 .copec-strategy .eyebrow { color: #765d1c; }
 .copec-pills span { background: #f2f6f9; color: #405f75; border-color: #bfcfda; }
+.copec-articulation { margin-top: 24px; padding: 20px; border: 1px solid #d8c77f; border-radius: 2px; background: #fff7d6; }
+.copec-articulation h4 { margin: 0; color: #715a20; font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1px; line-height: 1.6; }
+.copec-articulation .copec-pills { margin-top: 14px; }
 .copec-benchmark { background: #f0f5f8; border-color: #b9ccd9; border-top-color: #bea04d; }
 .copec-tag { color: #756027; }
 .copec-benchmark h3 { color: #2e5873; }
@@ -66,8 +69,10 @@ body { background: #fff; color: #292e32; }
 .copec-end-state article>span { color: #80671f; }
 .copec-end-state h3 { color: #2a4a62; }
 .copec-end-state p { color: #526572; }
-.copec-final { background: #f1f6f9; color: #294a62; border-color: #c8d7e1; }
+.copec-final { background: #f1f6f9; color: #294a62; border-color: #c8d7e1; row-gap: 20px; }
 .copec-final .eyebrow { color: #77601f; }
+.copec-final > .copec-final-label { grid-column: 1/-1; display: flex; align-items: center; gap: 10px; margin: 0; color: #725a17; font-size: 9px; letter-spacing: 1px; line-height: 1.6; text-align: left; }
+.copec-final-label .status-dot { flex: 0 0 6px; }
 .copec-final h3 { color: #2c4f68; }
 .copec-final p { color: #526572; }
 .copec-final .button { background: #f5e9b9; color: #4e421d; border: 1px solid #cbb56a; }
@@ -81,15 +86,15 @@ body { background: #fff; color: #292e32; }
 .search-result>span:first-child { min-width: 64px; font-size: 11px; }
 .search-result:hover { background: #eaf1f6; }
 
-/* A chamada e a foto abrem a mesma apresentação fornecida. */
+/* A chamada e as duas fotos abrem a mesma apresentação fornecida. */
 .copec-facilities { margin-top: 40px; border: 1px solid #c7d7e2; border-top: 4px solid #bda047; background: #edf4f9; border-radius: 5px; overflow: hidden; }
 .copec-facilities-heading { display: block; padding: 31px 33px 29px; }
 .copec-facilities-heading .eyebrow { color: #6e591e; font-size: 9px; letter-spacing: .7px; }
 .copec-facilities h3 { color: #2c526e; font-size: clamp(27px,2.7vw,42px); line-height: 1.25; margin: 11px 0 20px; }
 .facilities-action { display: inline-flex; align-items: center; gap: 25px; background: #fff; border: 1px solid #b0c6d5; padding: 11px 15px; border-radius: 3px; font-size: 12px; color: #315773; }
 .copec-facilities-heading:hover .facilities-action { background: #dae8f1; border-color: #7e9db3; }
-.copec-facilities-photo { display: block; border-top: 1px solid #c8d7e2; }
-.copec-facilities-photo img { display: block; width: 100%; height: auto; }
+.copec-facilities-photo { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; border-top: 1px solid #c8d7e2; }
+.copec-facilities-photo img { display: block; min-width: 0; width: 100%; height: auto; }
 .copec-facilities-photo:hover img { filter: brightness(1.04); }
 
 @media (max-width: 1100px) {
@@ -117,6 +122,7 @@ body { background: #fff; color: #292e32; }
   .copec-facilities-heading { padding: 24px 22px; }
   .copec-facilities h3 { font-size: 28px; }
   .facilities-action { font-size: 11px; line-height: 1.7; gap: 12px; }
+  .copec-final > .copec-final-label { font-size: 8px; letter-spacing: .6px; line-height: 1.8; }
   .copec-transition-symbols { flex-direction: row; justify-content: center; gap: 17px; }
   .copec-final .copec-transition-symbols img { width: 82px; }
   .copec-final .copec-transition-symbols img:last-child { width: 101px; }
