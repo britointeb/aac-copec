@@ -80,7 +80,8 @@ IDENTIDADE E APRESENTAÇÃO
   desses componentes devem permanecer selecionáveis e editáveis como texto.
 - INTRODUÇÃO e CONCLUSÃO compartilham fundo branco, título escuro, tipografia,
   margens e rótulo alinhado à esquerda com ponto dourado. A conclusão preserva
-  o emblema, os textos e o botão Rever as cinco propostas.
+  os textos atuais, o emblema AAC e o botão Rever as cinco propostas. A ordem
+  é: título, parágrafo em toda a largura, ciclo do conhecimento e botão.
 - Parágrafos e listas de texto usam text-align: justify e text-justify:
   inter-word. Rótulos de seção continuam à esquerda; textos do banner,
   caixas do diagrama de evolução e a chamada da articulação mantêm alinhamento
@@ -106,7 +107,7 @@ INTERAÇÃO
 - Cada tópico tem um controle próprio Recolher/Expandir.
 - Introdução e conclusão têm botões próprios no canto superior direito.
   Recolher mantém rótulo e título visíveis. Na introdução, oculta descrição,
-  diagrama e percurso; na conclusão, oculta emblema, parágrafo e botão.
+  diagrama e percurso; na conclusão, oculta parágrafo, ciclo do conhecimento e botão.
   Esses dois controles são independentes de Recolher Blocos/Tópicos.
 - O cabeçalho tem Recolher Blocos/Tópicos/Expandir Blocos/Tópicos para os quatro blocos e seus
   treze tópicos. Introdução, conclusão e glossário não são painéis desse controle.
@@ -318,12 +319,37 @@ Introdução e conclusão usam .copec-reading-section, .copec-section-header
 e .copec-reading-title. O cabeçalho coloca o rótulo com ponto dourado à
 esquerda e o botão de recolhimento à direita. O título fica abaixo e permanece
 visível ao recolher. A conclusão usa o mesmo fundo branco e título escuro da
-introdução; não tem mais a caixa azul de fundo. Emblema e texto de apoio ficam
-abaixo do título, em duas colunas no desktop e uma coluna até 560px.
+introdução; não tem mais a caixa azul de fundo nem a coluna lateral de 170px.
 .copec-section-content contém o conteúdo recolhível. IDs:
   #conteudo-introducao — descrição, evolução institucional e percurso.
-  #conteudo-conclusao — emblema, texto de apoio e Rever as cinco propostas.
+  #conteudo-conclusao — parágrafo, ciclo do conhecimento e Rever as cinco propostas.
 O banner institucional permanece visível quando a introdução é recolhida.
+
+LAYOUT DA CONCLUSÃO
+- O título atual permanece fora do painel recolhível. O parágrafo abaixo ocupa
+  toda a largura disponível, com justificação e sem limitar o texto à imagem.
+- O painel usa .copec-section-content.copec-final, com uma única coluna
+  minmax(0,1fr). Não recriar .copec-final-body ou .copec-final-copy nem a
+  antiga grade de duas colunas. As regras antigas foram removidas também
+  das media queries; as demais seções mantêm seus estilos.
+- .knowledge-cycle cria uma faixa centralizada entre duas linhas horizontais.
+  .knowledge-steps é uma lista ordenada sem numeração visual, com as etapas
+  Aprender → Aplicar → Analisar → Aperfeiçoar → Reter. As setas são SVGs
+  decorativos; os nomes continuam como texto editável no HTML.
+- .knowledge-signature agrupa o ícone de ciclo contínuo e assets/aac.png.
+  Reter e o ícone usam verde. O emblema mantém sua proporção 1:1, sem cortes;
+  os atributos width/height registram as dimensões originais de 1254 × 1254.
+  Não usar assets/aac.webp: esse arquivo não existe na pasta.
+- No desktop, etapas, ícone e emblema ficam lado a lado. A faixa permite
+  quebra entre etapas e assinatura quando o espaço diminui. Até 700px de
+  largura de tela, as etapas ficam verticais e as setas apontam para baixo.
+- O botão Rever as cinco propostas fica abaixo da faixa, alinhado à esquerda,
+  com o estilo azul-claro compartilhado .button.primary e destino #identidade.
+- A lista do ciclo é uma sequência de rótulos, por isso não é justificada.
+  A regra de justificação continua valendo para parágrafos e listas de texto.
+- Na impressão, o ciclo permanece horizontal e compacto, procura evitar
+  quebra interna e oculta o botão de navegação. O controle Recolher/Expandir
+  continua sendo atendido pelo app.js existente, sem código novo ou biblioteca.
 
 IMPRESSÃO
 As regras de @media print retiram o deslocamento do menu, escondem
@@ -567,7 +593,7 @@ continuar no HTML, e a aparência compartilhada deve ficar no CSS.
 
 IMAGENS USADAS NO HTML ATUAL
 assets/colog.png                  Favicon, menu, banner, cabeçalho e rodapé.
-assets/aac.png                    Banner e comparação AAC/COPEC.
+assets/aac.png                    Banner, comparação AAC/COPEC e conclusão.
 assets/lince.jpg                  Fotografia do diagnóstico: Lince K2.
 assets/centauro.jpg               Fotografia do diagnóstico: Centauro II.
 assets/atmos.jpg                  Fotografia do diagnóstico.
@@ -576,9 +602,11 @@ assets/copec.png                  Identidade proposta e destino da articulação
 assets/exercito.jpg               Frente interna da articulação.
 assets/copac.jpeg                 Frente específica da articulação.
 assets/republica.png              Frente externa da articulação.
-assets/aac_ciclo.png              Emblema da conclusão.
 assets/instalacoes-bloco-h.jpeg    Primeira foto das instalações.
 assets/instalacoes-bloco-h-1.jpeg  Segunda foto das instalações.
+
+A ilustração anterior assets/aac_ciclo.png permanece na pasta, mas não é
+mais usada na conclusão: o ciclo agora é construído com HTML, CSS e SVG.
 
 ORIGEM DOS SÍMBOLOS ADICIONADOS NO MOD 3
 exercito.jpg: cópia de IMAGEM_SIMBOLO_EXERCITO.jpg, da pasta local
@@ -630,6 +658,9 @@ ANTES DE DISTRIBUIR UMA REVISÃO
 - Conferir justificação de parágrafos/listas e as exceções de identificação.
 - Conferir menu móvel, abas, foco e movimento reduzido.
 - Confirmar fotos do Bloco H lado a lado e alinhamento da conclusão.
+- Conferir a conclusão em largura total, a ordem parágrafo/ciclo/botão,
+  as cinco etapas horizontais no desktop, a adaptação vertical até 700px,
+  a imagem assets/aac.png e o recolhimento de todo o conteúdo abaixo do título.
 - Conferir as quatro fotos dos veículos em 3:2, sem alturas fixas ou cortes,
   em desktop, celular e impressão. Conferir dimensões intrínsecas no HTML.
 - Conferir a ordem dos controles e os rótulos nos dois estados.
@@ -1009,14 +1040,29 @@ para #conclusao. Use rótulo CONCLUSÃO à esquerda com o mesmo ponto dourado
 da INTRODUÇÃO. Use o mesmo fundo branco, tipografia, título escuro e margens
 da introdução. Mantenha o título fora do painel recolhível e inclua Recolher
 conclusão no canto superior direito, alternando para Expandir conclusão.
-Preserve assets/aac_ciclo.png e o título:
-Transformar experiência e proficiência em expertise,
-proporcionando a capacidade almejada permanentemente.
-Inclua o texto de conexão entre necessidade, obtenção, apoio logístico
-e comprovação dos resultados. O botão Rever as cinco propostas aponta
-para #identidade. Emblema, texto de apoio e botão ficam no painel
-#conteudo-conclusao. Não retirar nenhum desses conteúdos. O título deve
-usar a mesma classe .copec-reading-title da introdução.
+Preserve o título atual:
+Construir bases sólidas hoje para um futuro sem supresas.
+Preserve integralmente o parágrafo atual do HTML, sem substituir o conteúdo
+pela frase curta da imagem de referência. Ele trata dos cenários futuros,
+complexidade da aquisição, custo-efetividade e retenção da capacidade.
+Use .copec-reading-title no título e mantenha-o fora de #conteudo-conclusao.
+Nesse painel, use .copec-section-content.copec-final com uma única coluna
+minmax(0,1fr), nesta ordem: parágrafo justificado em toda a largura; faixa
+do ciclo de conhecimento; botão Rever as cinco propostas para #identidade.
+Não usar a grade antiga com uma coluna de 170px para imagem.
+Na faixa .knowledge-cycle, crie uma lista .knowledge-steps com as etapas
+Aprender → Aplicar → Analisar → Aperfeiçoar → Reter, sem números visuais,
+seguida por .knowledge-signature com ícone de ciclo contínuo e assets/aac.png.
+Use setas SVG decorativas entre os textos. Centralize o conjunto entre duas
+linhas horizontais. Reter e o ícone são verdes; o emblema preserva proporção
+1:1 e usa atributos intrínsecos 1254 × 1254. Essa lista de rótulos não é
+justificada. No desktop, disponha o conjunto na horizontal; permita quebra
+da assinatura se necessário. Até 700px, empilhe as etapas com setas para baixo.
+Na impressão, use uma faixa horizontal compacta e esconda o botão.
+O botão, abaixo da faixa e à esquerda, usa .button.primary em azul-claro.
+Recolher conclusão oculta parágrafo, faixa e botão, mantendo rótulo e título.
+Use o app.js existente para o recolhimento. Preserve os textos escritos pelo
+responsável: a imagem de referência orienta apenas o layout.
 
 GLOSSÁRIO E RODAPÉ
 Em #referencias, use details/summary para Abreviaturas/Glossário.
