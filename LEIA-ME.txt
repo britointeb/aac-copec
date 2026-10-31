@@ -1,62 +1,1103 @@
-SITE COPEC — VERSÃO 2
+SITE COPEC — VERSÃO 3
+GUIA DE USO, REGRAS, ESTRUTURA E PROMPT DE RECRIAÇÃO
+Documentação revisada em 31 de outubro de 2026.
+
+SUMÁRIO
+01. Identificação, arquivos e abertura
+02. Regras gerais do site
+03. Mapa dos blocos, tópicos e âncoras
+04. Padrões de layout e componentes
+05. Como o HTML está montado
+06. Como o CSS está montado
+07. Como o JavaScript está montado
+08. Imagens, materiais e links
+09. Manutenção, conferência e publicação
+10. Prompt completo para recriar o site
+
+
+===============================================================================
+01. IDENTIFICAÇÃO, ARQUIVOS E ABERTURA
+===============================================================================
+
+FINALIDADE
+Apresentar a proposta de criação da Comissão de Obtenção de Produtos
+Estratégicos Complexos (COPEC), a partir da experiência da Assessoria de
+Aquisições Complexas (AAC), no âmbito do Comando Logístico (COLOG).
+
+O percurso editorial reúne diagnóstico, base técnica, propostas da COPEC,
+resultados esperados e conclusão. A linguagem deve distinguir proposta de
+decisão institucional já aprovada. Organograma, competências e alocação de
+pessoal dependem dos atos e validações institucionais indicados no conteúdo.
+
+ESTRUTURA DA PASTA
+SITE_COPEC_V3/
+  index.html                       Conteúdo e estrutura da página.
+  styles.css                       Única folha de estilos do site.
+  app.js                           Interações e comportamento.
+  assets/                          Imagens e materiais de referência.
+  LEIA-ME.txt                      Este guia e o prompt de recriação.
+  ATUALIZAR_AAC_COPEC_GITHUB.bat    Utilitário de publicação no GitHub.
 
 COMO ABRIR
-Abra index.html em um navegador atual. Mantenha os arquivos CSS, app.js e a
-pasta assets junto ao HTML. Não há instalação nem etapa de compilação.
+Abra index.html em um navegador atual, mantendo os demais arquivos e a pasta
+assets na mesma organização. O site é estático: não exige instalação, servidor,
+framework, banco de dados ou etapa de compilação para sua consulta local.
+O link da apresentação de instalações exige internet e as permissões de acesso
+do próprio arquivo no Google Drive.
 
-ESTRUTURA
-Introdução — propósito da criação da COPEC, sem numeração de bloco.
-Bloco 1 — Diagnóstico: 1.1 Diagnóstico histórico; 1.2 Limites do modelo.
-Bloco 2 — Base técnica: 2.1 AAC; 2.2 Capacitação; 2.3 Articulação e COPAC.
-Bloco 3 — Propostas da COPEC:
-  3.1 Identidade (Proposta 1).
-  3.2 Estrutura e núcleos (Proposta 2).
-  3.3 Guarda do processo (Proposta 3).
-  3.4 Marco de transferência (Proposta 4).
-  3.5 Efetivo (Proposta 5).
-  3.6 Formalização e instalações.
-Bloco 4 — Resultados: 4.1 Impacto estratégico; 4.2 Estado final desejado.
+BASE DA VERSÃO
+A V3 foi criada a partir da V2 e das solicitações de PROMPT_MOD_2.docx.
+A V2 foi preservada. Depois, os cinco CSS foram reunidos em styles.css,
+mantendo a ordem das regras. Este guia descreve o estado atual dos arquivos,
+incluindo as edições posteriores do diagrama institucional e os ajustes
+de animação, controles e diagramas solicitados em PROMPT_MOD_3.docx.
 
-ALTERAÇÕES SOLICITADAS NO PROMPT_MOD_1.docx
-Numeração sem zeros à esquerda e tópicos identificados pelo bloco.
-Introdução separada dos blocos numerados.
-Divisões visuais entre os quatro blocos e menu reorganizado.
-Fundos claros no conteúdo e nos diagramas, com textos escuros.
-Cabeçalho, menu lateral e rodapé mantêm as cores originais da V1.
-Símbolo COPEC incorporado à identidade proposta e ao encerramento.
-Cinco propostas reunidas no Bloco 3, na sequência 1 a 5.
-Quadro “Novos desafios, novas instalações...” após a formalização.
-Slogan acima da foto; ambos abrem a apresentação no link informado.
-O símbolo COPEC e a foto foram extraídos do anexo, sem alterar as imagens.
 
-ARQUIVOS
-index.html — conteúdo e estrutura.
-styles.css, tema-colog.css, copec.css — estilos herdados da V1.
-copec-v2.css — alterações visuais da V2; carregado por último.
-app.js — navegação, abas, busca, animações e impressão.
-assets/ — imagens e material de referência herdados da V1, mais os dois
-arquivos do anexo: copec.png e instalacoes-bloco-h.jpeg.
+===============================================================================
+02. REGRAS GERAIS DO SITE
+===============================================================================
 
-USO
-O menu pode ser recolhido. A lupa e a tecla / abrem a busca.
-As abas aceitam clique, toque, setas, Home e End.
-Esc fecha a busca e o menu no celular.
-O botão Imprimir prepara as imagens e expande os detalhes.
-O site funciona localmente; o link da apresentação requer internet e as
-permissões de acesso que já estiverem definidas no arquivo do Google Drive.
+CONTEÚDO E HIERARQUIA
+- Idioma: português do Brasil, com codificação UTF-8.
+- Introdução e conclusão são seções independentes, sem numeração de tópico.
+- Há quatro blocos e treze tópicos, com numeração bloco.tópico e sem zeros
+  à esquerda: 1.1, 1.2, 2.1 e assim por diante.
+- Menu lateral, índices dos blocos, numeração, títulos e âncoras devem concordar.
+- O conteúdo principal fica no HTML. Não depende de carregamento remoto nem
+  de geração de texto pelo JavaScript para existir na página.
+- Textos institucionais, observações sobre aprovação e notas de alocação
+  indicativa de pessoal devem acompanhar os quadros aos quais se referem.
+- Diferenciar Suporte Logístico Inicial, marco de transferência do SMEM, de
+  Suporte Logístico Integrado, denominação do núcleo proposto.
 
-BASE
-Criado a partir de SITE_COPEC_V1 e das alterações em PROMPT_MOD_1.docx.
-A versão original foi preservada.
-Edição: 29 de outubro de 2026.
+IDENTIDADE E APRESENTAÇÃO
+- Preservar os emblemas originais, o nome COLOG-AAC e a identidade institucional.
+- Usar superfícies claras no conteúdo, textos escuros e detalhes azuis/dourados.
+- Cabeçalho fixo, faixa institucional e rodapé mantêm a identidade escura.
+- Manter tipografia, espaçamentos, bordas, rótulos e estados dos botões coerentes
+  entre componentes equivalentes.
+- Usar HTML/CSS para fluxos, organograma e diagrama de evolução; as informações
+  desses componentes devem permanecer selecionáveis e editáveis como texto.
+- INTRODUÇÃO e CONCLUSÃO compartilham fundo branco, título escuro, tipografia,
+  margens e rótulo alinhado à esquerda com ponto dourado. A conclusão preserva
+  o emblema, os textos e o botão Rever as cinco propostas.
+- Parágrafos e listas de texto usam text-align: justify e text-justify:
+  inter-word. Rótulos de seção continuam à esquerda; textos do banner,
+  caixas do diagrama de evolução e a chamada da articulação mantêm alinhamento
+  próprio, pois funcionam como identificação visual, não como texto corrido.
+- O quadro ARTICULAÇÃO reúne três frentes: INTERNA (Exército, com Cmt Log,
+  Chefias, COEx e ODS / ODG em área amarelo-clara), ESPECÍFICA (COPAC)
+  e EXTERNA (brasão da República). As três convergem para a COPEC.
+  Usar cartões azul-claros no padrão do diagrama de evolução, conexões
+  douradas e um cartão amarelo-claro de destino. Os cartões permitem
+  destacar cada ligação por mouse, toque e teclado.
+- Os treze tópicos entram de baixo para cima; as quatro faixas de bloco
+  deslizam lateralmente com leve escala. As entradas ocorrem na primeira
+  passagem pela tela, respeitando a pausa e a preferência de movimento reduzido.
+- Fotografias usam dimensões proporcionais: a largura disponível define a
+  altura. Para as fotos de Lince, Centauro, ATMOS e Black Hawk, adotar 12:8
+  (largura:altura), equivalente a aspect-ratio: 3 / 2. Não fixar a altura
+  em pixels nem criar alturas diferentes por breakpoint.
+- As duas fotos das instalações do Bloco H permanecem lado a lado em qualquer
+  largura, inclusive no celular.
 
-ATUALIZAR O GITHUB
-Execute ATUALIZAR_AAC_COPEC_GITHUB.bat dentro desta pasta.
-O BAT usa automaticamente a pasta onde ele próprio está localizado.
-Todos os arquivos e subpastas são enviados à raiz de britointeb/aac-copec,
-exceto o próprio BAT e os metadados .git. Arquivos antigos ausentes nesta
-pasta são removidos do conteúdo atual do repositório.
-Confira a lista de alterações e digite PUBLICAR para confirmar o envio.
-Conclua o login no navegador se solicitado pelo Git Credential Manager.
-O histórico do Git e a pasta de origem são preservados. O backup anterior
-fica em %LOCALAPPDATA%\AAC-COPEC\Publicacoes.
+INTERAÇÃO
+- Cada bloco tem um controle próprio Recolher/Expandir.
+- Cada tópico tem um controle próprio Recolher/Expandir.
+- Introdução e conclusão têm botões próprios no canto superior direito.
+  Recolher mantém rótulo e título visíveis. Na introdução, oculta descrição,
+  diagrama e percurso; na conclusão, oculta emblema, parágrafo e botão.
+  Esses dois controles são independentes de Recolher Blocos/Tópicos.
+- O cabeçalho tem Recolher Blocos/Tópicos/Expandir Blocos/Tópicos para os quatro blocos e seus
+  treze tópicos. Introdução, conclusão e glossário não são painéis desse controle.
+- Recolher um bloco mantém visíveis seu cabeçalho e o índice dos tópicos.
+- Recolher um tópico mantém visível seu cabeçalho, com número, título e apoio,
+  e oculta o corpo do tópico.
+- Recolher e reabrir um bloco preserva o estado individual dos tópicos.
+- Se houver qualquer bloco ou tópico recolhido, o controle geral oferece
+  Expandir Blocos/Tópicos. Quando todos estão abertos, oferece Recolher Blocos/Tópicos.
+- Menu, índices, busca e links diretos reabrem os painéis necessários antes
+  de levar o leitor ao destino.
+- O estado de leitura é mantido durante a página aberta; não há gravação desse
+  estado em banco de dados ou armazenamento persistente.
+
+ACESSIBILIDADE E IMPRESSÃO
+- Usar botões nativos para ações e links para navegação.
+- Manter texto alternativo das imagens, foco visível e rótulos dos controles.
+- aria-controls identifica o painel; aria-expanded informa seu estado.
+- As abas usam relações entre tab e tabpanel e seleção por teclado.
+- Respeitar a preferência de movimento reduzido e o botão de pausar animações.
+- Ao imprimir, mostrar todos os blocos, tópicos, painéis de abas e detalhes;
+  ocultar os controles de navegação e restaurar os estados após a impressão.
+- Sem JavaScript, os corpos dos blocos e tópicos ficam abertos e seus botões
+  de recolhimento ficam ocultos. Busca, alternância de abas e controles
+  programados dependem do app.js.
+
+
+===============================================================================
+03. MAPA DOS BLOCOS, TÓPICOS E ÂNCORAS
+===============================================================================
+
+INTRODUÇÃO
+  Introdução                         #inicio
+
+BLOCO 1 — DIAGNÓSTICO                 #bloco-1
+  1.1 Diagnóstico histórico           #historico
+  1.2 Limites do modelo               #limites
+
+BLOCO 2 — BASE TÉCNICA                #bloco-2
+  2.1 A AAC como embrião              #aac
+  2.2 Capacitação científica          #capacitacao
+  2.3 Articulação e COPAC              #referencia
+
+BLOCO 3 — PROPOSTAS DA COPEC          #bloco-3
+  3.1 Identidade da COPEC             #identidade
+  3.2 Estrutura e núcleos             #estrutura
+  3.3 Guarda do processo              #ciclo
+  3.4 Marco de transferência          #transicao
+  3.5 Efetivo de 21 militares         #pessoal
+  3.6 Formalização e instalações      #normas
+      Quadro das instalações         #instalacoes
+
+BLOCO 4 — RESULTADOS                 #bloco-4
+  4.1 Impacto estratégico             #impacto
+  4.2 Estado final desejado           #estado-final
+
+ENCERRAMENTO
+  Conclusão                          #conclusao
+  Abreviaturas/Glossário              #referencias
+
+Conclusão fica fora do painel do tópico 4.2 e fora dos painéis dos blocos.
+Seu link aponta para #conclusao. Há uma linha separadora no menu e outra
+separando sua seção do conteúdo anterior.
+
+
+===============================================================================
+04. PADRÕES DE LAYOUT E COMPONENTES
+===============================================================================
+
+ESTRUTURA PERMANENTE
+O menu lateral é fixo e rolável. O cabeçalho fixo apresenta, nesta ordem:
+Imprimir — Recolher Blocos/Tópicos — Recolher Menu Lateral — lupa da busca.
+Os três botões de texto compartilham bordas, altura, efeitos de hover e foco.
+Quando necessário, os rótulos passam a Expandir Blocos/Tópicos e Exibir Menu
+Lateral. Uma barra indica o progresso da leitura.
+No desktop, área principal e rodapé reservam espaço para o menu lateral.
+Ao recolher o menu, esse espaço é liberado.
+
+O conteúdo usa .wrap, com largura máxima de 1220px. As margens laterais
+habituais são 42px de cada lado, com reduções nos intervalos responsivos.
+A largura do menu desktop varia: 244px como padrão, 222px entre 1101 e
+1300px e 278px a partir de 1550px. O cabeçalho desktop tem 49px.
+
+Até 1100px, o menu vira painel sobreposto de 278px, o cabeçalho passa a
+62px e o conteúdo deixa de reservar uma coluna lateral. O fundo de fechamento
+permite dispensar o menu sobreposto. Selecionar um destino fecha o menu móvel.
+Até 700px, o cabeçalho tem 92px e organiza os controles em duas linhas,
+mantendo a sequência de leitura e os rótulos completos.
+
+PADRÃO DE BLOCO
+- Contêiner .copec-block-group reúne cabeçalho e conteúdo do bloco.
+- .copec-block-divider é a faixa azul clara com bordas superior e inferior.
+- .copec-block-heading reúne número destacado, título, descrição e controle.
+- .copec-block-topics é o índice de links para os tópicos desse bloco.
+- .copec-block-content contém as seções dos tópicos.
+- O botão fica no canto superior direito; em telas menores, o cabeçalho
+  reserva uma faixa superior para acomodá-lo sem comprimir o título.
+
+PADRÃO DE TÓPICO
+- Cada tópico é uma section.chapter.section com ID próprio e data-block,
+  data-number e data-label coerentes com o menu.
+- .chapter-heading reúne número em quadro, rótulo contextual, título e
+  texto de apoio. O botão aparece acima, à direita.
+- No desktop, a grade usa uma coluna numérica de 76px e colunas de título
+  e apoio. Até 800px, o apoio passa para baixo; até 560px, número e
+  espaçamentos são reduzidos.
+- .copec-topic-content guarda o corpo recolhível.
+- A rolagem por âncora considera a altura do cabeçalho fixo.
+- O corpo pode usar cartões, listas, fluxos, tabelas e abas, conforme o tema;
+  esses componentes compartilham cores, bordas e tipografia.
+
+TIPOGRAFIA E CORES
+O corpo usa Arial, Helvetica e sans-serif. Títulos e identidade usam a pilha
+local "Arial Rounded MT Bold", "Arial Rounded MT", "Trebuchet MS", Arial,
+sans-serif. As alternativas garantem leitura quando a fonte principal não
+está instalada. Não há carregamento de fontes web.
+
+Referências visuais atuais:
+  Texto do corpo                     #292e32
+  Superfície clara                    #f1f6f9
+  Faixa dos blocos                    #eaf1f6
+  Azul de títulos/componentes         #2e5873 (com variações por componente)
+  Dourado principal                   #e5c85b
+  Dourado escuro                      #806110
+  Amarelo claro dos destaques         #fff7d6
+  Faixa institucional/cabeçalho        preto
+  Rodapé                             #101010
+
+Há tamanhos e espaçamentos específicos por componente e largura de tela;
+não se deve impor um único tamanho a todos os títulos ou rótulos.
+
+INTRODUÇÃO E DIAGRAMA ATUAL
+O banner institucional mostra COLOG e AAC nas laterais e os textos centrais.
+A apresentação principal da V3 usa uma coluna; a descrição limita a largura
+de leitura a 85ch. Os antigos botões Conhecer o diagnóstico e Explorar a
+proposta foram retirados dessa abertura.
+
+O diagrama atual possui esta faixa cronológica:
+  ANTES DE 2022 (1) → DE 2022 ATÉ 2025 (2) → A PARTIR DE 2025 (3) → ... (4)
+
+Os cartões correspondentes são:
+  ANTES DA REESTRUTURAÇÃO: COLOG (APPCO), D MAT, D M Av Ex.
+  APÓS A REESTRUTURAÇÃO: COEx, C Mat, C M Av Ex.
+  ATUALMENTE: COEx, C Mat, C M Av Ex, AAC.
+  FUTURO: COPEC.
+
+A AAC recebe fundo vermelho e texto branco. O destino COPEC usa amarelo
+claro. Os quatro cartões ficam em colunas ligadas por setas douradas.
+Até 640px, a sequência fica vertical, com setas para baixo.
+A legenda é: Evolução da articulação institucional até a COPEC.
+Essa configuração substitui as antigas denominações INÍCIO/ANTES/DURANTE/
+DEPOIS, a antiga repetição de C Mat e a antiga faixa superior AAC → COPEC.
+
+ARTICULAÇÃO EM CARTÕES
+O quadro .copec-articulation-map usa três colunas de cartões HTML
+(.articulation-card), alinhadas por CSS Grid. As superfícies azul-claras,
+bordas superiores, rótulos dourados e caixas brancas seguem o padrão de
+.copec-history-stage. Apenas os brasões são imagens, em arquivos separados.
+A frente interna mantém Cmt Log, Chefias, COEx e ODS / ODG em área amarela.
+As conexões de convergência usam .articulation-bridge, .articulation-route
+e pseudoelementos CSS; não dependem de uma imagem ou SVG do diagrama.
+O destino .articulation-destination combina o emblema e o nome COPEC num
+cartão amarelo-claro. As três frentes permanecem lado a lado no celular,
+com fontes, figuras e espaçamentos adaptados em 700px e 480px.
+Os cartões são botões nativos, habilitados pelo JavaScript. Mouse e foco
+destacam a conexão; clique, Enter ou Espaço fixam a seleção. Outro clique
+no mesmo cartão ou Escape limpa a seleção. aria-pressed indica o estado;
+#articulation-status informa a ligação selecionada. Sem JavaScript, os
+cartões permanecem visíveis, com seleção desabilitada. Na impressão, todos
+ficam visíveis e o destaque da seleção é removido.
+
+FOTOGRAFIAS E PROPORÇÕES
+Usar a classe reutilizável .copec-photo nas fotografias. Sua regra reúne:
+  aspect-ratio: var(--photo-ratio, 3 / 2);
+  display: block;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  object-fit: contain;
+  width: 100%;
+A proporção padrão é largura 12 × altura 8, ou 3:2. Assim, uma largura de
+600px gera 400px de altura; 300px gera 200px. A mesma regra funciona no
+desktop, celular e impressão, sem alturas fixas de imagem nos breakpoints.
+object-fit: contain mantém a fotografia completa. Pequenas diferenças de
+proporção entre arquivos não causam deformação nem corte do conteúdo.
+
+Para outro formato conhecido, manter .copec-photo e declarar no componente
+apenas a variável --photo-ratio, por exemplo --photo-ratio: 4 / 3.
+Se a imagem deve seguir exatamente a própria proporção, acrescentar
+.copec-photo--natural, que usa aspect-ratio: auto. As fotos do Bloco H
+usam esse modificador e mantêm a grade de duas colunas em qualquer largura.
+
+Os atributos width e height do HTML informam as dimensões reais do arquivo
+para reservar espaço e reduzir deslocamentos durante o carregamento.
+Eles não fixam o tamanho exibido: o CSS usa width: 100% e height: auto.
+Ao substituir uma foto, atualizar esses atributos conforme o novo arquivo.
+Não usar .copec-photo em brasões, ícones ou emblemas: esses elementos têm
+proporções e regras de apresentação próprias.
+
+INSTALAÇÕES E CONCLUSÃO
+O quadro de instalações tem fundo azul claro, borda superior dourada,
+título e chamada para a apresentação. As duas fotos são filhas diretas
+do mesmo link, em grade de duas colunas, com largura de 100% e altura
+automática. Esse é um caso em que as imagens não passam para uma coluna
+no celular. Usar class="copec-photo copec-photo--natural" e manter a
+proporção intrínseca também na impressão, sem impor uma altura máxima.
+
+Introdução e conclusão usam .copec-reading-section, .copec-section-header
+e .copec-reading-title. O cabeçalho coloca o rótulo com ponto dourado à
+esquerda e o botão de recolhimento à direita. O título fica abaixo e permanece
+visível ao recolher. A conclusão usa o mesmo fundo branco e título escuro da
+introdução; não tem mais a caixa azul de fundo. Emblema e texto de apoio ficam
+abaixo do título, em duas colunas no desktop e uma coluna até 560px.
+.copec-section-content contém o conteúdo recolhível. IDs:
+  #conteudo-introducao — descrição, evolução institucional e percurso.
+  #conteudo-conclusao — emblema, texto de apoio e Rever as cinco propostas.
+O banner institucional permanece visível quando a introdução é recolhida.
+
+IMPRESSÃO
+As regras de @media print retiram o deslocamento do menu, escondem
+ferramentas e exibem conteúdo recolhido. Os blocos têm regras de quebra
+de página; a conclusão inicia uma nova página. O diagrama volta a quatro
+colunas. A faixa institucional conserva sua identidade preta com branco.
+Quadros e imagens relevantes procuram evitar divisão entre páginas.
+
+
+===============================================================================
+05. COMO O HTML ESTÁ MONTADO
+===============================================================================
+
+index.html define a estrutura, a ordem de leitura, os textos e as relações
+entre os controles. O elemento html declara lang="pt-BR"; o head declara
+UTF-8, viewport, título, descrição, favicon, um link para styles.css
+e app.js carregado com defer.
+
+O body está organizado em:
+1. Definições de ícones SVG reutilizadas por <use>.
+2. Link Pular para o conteúdo.
+3. Menu lateral #site-sidebar, navegação #main-nav e botão de animações.
+4. Fundo de fechamento do menu e cabeçalho fixo com ferramentas.
+5. main#conteudo: introdução, quatro grupos de blocos, conclusão e glossário.
+6. Rodapé com identidade, slogan, contato e data.
+7. dialog#search-dialog e região #interaction-status para avisos acessíveis.
+
+Comentários delimitam os blocos e os tópicos e apresentam um mapa da página.
+Eles são orientações de manutenção do código; não aparecem na tela.
+
+RELAÇÕES IMPORTANTES
+  #bloco-N                    Âncora do cabeçalho do bloco.
+  #grupo-bloco-N              Contêiner do cabeçalho e dos tópicos.
+  #conteudo-bloco-N           Corpo recolhível do bloco.
+  #assunto                    Âncora da section de um tópico.
+  #conteudo-assunto           Corpo recolhível desse tópico.
+  data-collapse="block"       Botão que controla um bloco.
+  data-collapse="topic"       Botão que controla um tópico.
+  data-collapse-panel         Identifica o tipo de painel.
+  data-collapse-context       Texto contextual do controle acessível.
+  aria-controls               ID do painel controlado pelo botão.
+  aria-expanded               Estado aberto/fechado do controle.
+
+MODELO RESUMIDO DE TÓPICO
+O exemplo abaixo é um padrão para manutenção; N.M e assunto são marcadores
+que devem ser substituídos por valores reais e IDs exclusivos.
+
+<!-- INÍCIO DO TÓPICO N.M — Assunto. Âncora: #assunto. -->
+<section id="assunto" class="chapter section" data-block="N"
+         data-number="N.M" data-label="Assunto">
+  <div class="wrap">
+    <button class="copec-collapse-toggle copec-topic-toggle" type="button"
+            data-collapse="topic" data-collapse-context="tópico N.M — Assunto"
+            aria-controls="conteudo-assunto" aria-expanded="true"
+            aria-label="Recolher tópico N.M — Assunto" hidden>
+      <span class="collapse-label">Recolher tópico</span>
+      <span class="collapse-icon" aria-hidden="true">−</span>
+    </button>
+    <div class="chapter-heading">
+      <span class="chapter-number">N.M</span>
+      <div>
+        <p class="eyebrow">BLOCO N · CONTEXTO</p>
+        <h2>Título do tópico</h2>
+      </div>
+      <p class="heading-aside">Texto de apoio.</p>
+    </div>
+    <div id="conteudo-assunto" class="copec-topic-content"
+         data-collapse-panel="topic">
+      <!-- Cartões, texto, listas, fluxos, tabela ou abas. -->
+    </div>
+  </div>
+</section>
+<!-- FIM DO TÓPICO N.M. -->
+
+ABAS E DETALHES
+Grupos de abas usam data-tab-group, botões role="tab" e painéis
+role="tabpanel", associados por IDs e atributos ARIA. O painel inativo
+recebe hidden. Elementos details/summary organizam o portfólio e o glossário.
+
+CONTEÚDO VERSUS APARÊNCIA
+Classes são ganchos para CSS/JavaScript. IDs são destinos únicos de âncoras
+e relações entre controles. Alterar um deles exige conferir todas as suas
+referências. Há estilos pontuais inline no HTML atual: o destaque vermelho
+da AAC, as cores dos três rótulos do fluxo de 1.2 e o ocultamento técnico
+do conjunto de ícones SVG. A maior parte da aparência está em styles.css.
+
+
+===============================================================================
+06. COMO O CSS ESTÁ MONTADO
+===============================================================================
+
+Existe apenas um arquivo de estilos referenciado pelo HTML: styles.css.
+O arquivo foi reorganizado em 31/10/2026. As antigas divisões por versão
+foram substituídas por blocos comentados de regras gerais, contextos de
+mídia e animações. Há um único @charset "UTF-8" no início.
+
+ORDEM ALFABÉTICA E CONSOLIDAÇÃO
+- Os seletores ficam em ordem alfabética dentro de cada bloco compatível
+  com a cascata. Nomes de animações também estão em ordem alfabética.
+- Sempre que possível, todas as declarações de um seletor no mesmo contexto
+  foram reunidas num único par de chaves. Foram reunidas 150 regras e
+  removidas 462 declarações comprovadamente sobrescritas.
+- Foram retirados seletores herdados sem correspondência nos componentes
+  do HTML e nos estados/classes utilizados pelo JavaScript atual.
+- Regras de tela pequena, impressão, movimento reduzido e estados de
+  interação continuam em seus contextos próprios. Uma classe pode aparecer
+  nesses contextos diferentes sem representar duplicação indevida.
+- Alguns empates de especificidade exigem continuidade em outro bloco.
+  Há 11 combinações de seletor/contexto com mais de uma regra por esse
+  motivo. Forçar sua fusão ou uma ordenação alfabética global mudaria o
+  resultado da cascata. A organização respeita essas exceções.
+- As propriedades dentro das chaves preservam a ordem necessária entre
+  abreviações e propriedades individuais, como padding/padding-top,
+  border/border-color e font/font-size. Não ordená-las automaticamente.
+
+JUSTIFICAÇÃO DOS TEXTOS
+A regra #conteudo p, #conteudo li aplica:
+  text-align: justify;
+  text-justify: inter-word;
+Exceções explícitas preservam o alinhamento dos rótulos .eyebrow, dos textos
+institucionais do banner, das caixas de identificação no diagrama de evolução
+e da chamada curta .articulation-intro. Títulos e botões mantêm seu alinhamento
+de componente. Não aplicar justificação ao documento inteiro por herança.
+
+COMO LER A CASCATA
+O resultado depende de especificidade, !important, herança, variáveis,
+condições de mídia e, em caso de empate, ordem de origem. As declarações inline
+do HTML também participam. Blocos de continuidade conservam essa precedência.
+Os principais contextos tratam de desktop, telas menores, menu compacto,
+altura da janela, prefers-reduced-motion e @media print. Consulte todas as
+ocorrências do seletor antes de alterá-lo.
+
+COMO ALTERAR
+1. Localizar o seletor existente e o contexto correto (geral, mídia ou estado).
+2. Editar essa regra, reunindo suas declarações no mesmo par de chaves sempre
+   que isso não alterar a precedência. Evitar acrescentar remendos ao fim.
+3. Inserir novos seletores em ordem alfabética no bloco compatível.
+4. Manter regras de mídia e estados separadas quando seus valores diferirem.
+5. Preservar a ordem de abreviações e propriedades específicas. Evitar
+   !important como atalho para corrigir um conflito de organização.
+6. Reutilizar variáveis de cores/dimensões e classes compartilhadas.
+   Para fotografias, usar .copec-photo com aspect-ratio e --photo-ratio.
+   Ajustar a largura ou a grade do contêiner; não arbitrar alturas de imagem.
+   Manter as duas regras de foto juntas e alfabeticamente posicionadas.
+7. Conferir componentes, teclado, recolhimento, telas menores e impressão.
+8. Continuar com um único styles.css, sem CSS separados por versão.
+
+CONFERÊNCIA DA REORGANIZAÇÃO
+A cascata antes/depois foi comparada em 57 cenários de largura, altura,
+impressão e movimento reduzido, com os elementos e estados previstos no site.
+Também foram verificados HTML, IDs, ARIA, arquivos de imagem e interações.
+Essa comparação de código não substitui a conferência visual no navegador,
+que não estava disponível nesta sessão. Não é necessário executar ferramentas
+de compilação ou instalar dependências para abrir o site.
+
+
+===============================================================================
+07. COMO O JAVASCRIPT ESTÁ MONTADO
+===============================================================================
+
+app.js é um script nativo, executado em uma função de escopo fechado,
+com 'use strict'. Não depende de bibliotecas externas. O atributo defer
+permite iniciar depois da leitura da estrutura HTML.
+
+SELEÇÃO E AVISOS
+As funções auxiliares $ e $$ selecionam elementos. announce() escreve
+avisos em #interaction-status. enter() aciona a animação de entrada quando
+o movimento não está pausado.
+
+RECOLHER E EXPANDIR
+O script encontra [data-collapse], relaciona cada botão ao seu painel
+por aria-controls e usa setExpanded() para atualizar hidden, texto,
+ícone, aria-expanded e contexto acessível. O tópico recolhido recebe
+a classe is-collapsed. Introdução e conclusão usam data-collapse="section",
+data-collapse-label, data-collapse-context e a classe is-section-collapsed.
+collapseButtons reúne os 19 controles; blockTopicButtons filtra os 17 de
+blocos/tópicos para o controle geral. syncCollapseAll() considera apenas esses
+17 painéis. Impressão e navegação por âncora atendem também às duas seções.
+
+revealDestination() abre os painéis do destino. revealHash() atende
+ao endereço com #âncora na abertura e às mudanças de hash. Os links internos
+também passam por essa preparação antes de navegar. Ao ocultar um painel
+que contém o foco, o foco retorna a um controle visível.
+
+ABAS
+O tratamento de [data-tab-group] controla os grupos pilares, nucleos,
+fases e marco. Atualiza aria-selected, tabindex e hidden dos painéis.
+Setas, Home e End mudam a aba e o foco; clique e toque também selecionam.
+
+MENU E PROGRESSO
+setMenu() sincroniza o painel lateral, aria-expanded, aria-hidden,
+inert, fundo de fechamento e classes do body. Em telas compactas, Escape
+fecha o menu e Tab circula pelos elementos do painel aberto. A preferência
+do menu desktop é mantida durante a sessão da página.
+
+updateScroll() calcula o progresso e identifica a seção visível atual.
+O menu recebe a classe active e aria-current no link correspondente.
+Seções ocultas não são tratadas como destinos ativos. requestAnimationFrame
+agrupa as atualizações para reduzir trabalho durante a rolagem.
+
+BUSCA
+A lupa e a tecla / abrem dialog#search-dialog. A busca normaliza acentos
+e maiúsculas/minúsculas e procura as palavras nos textos das seções.
+Os resultados informam número, assunto e título. Selecionar um resultado
+reabre o conteúdo, fecha a busca, navega e leva o foco ao título.
+
+ANIMAÇÕES
+O script lê prefers-reduced-motion e oferece o controle de animações.
+IntersectionObserver observa .chapter > .wrap (13 tópicos),
+.copec-block-divider > .wrap (4 blocos) e .copec-articulation-map.
+Os tópicos sobem 15px com transição de 0,65s; os blocos entram 24px pela
+esquerda, com escala inicial 0,98 e duração de 0,7s. O threshold 0 permite
+acionar também tópicos mais altos que a janela. Cada entrada ocorre uma vez.
+No quadro de articulação, os símbolos dos cartões entram em sequência;
+os segmentos verticais e horizontais desenham a convergência e, por fim,
+aparece o cartão de destino COPEC. Os conectores são pseudoelementos CSS.
+data-articulation identifica cada cartão; data-route identifica a ligação.
+O JavaScript atualiza data-active, is-highlighted, aria-pressed e a legenda
+de estado ao usar mouse, teclado ou toque. A seleção não muda o conteúdo
+institucional e não exige React, servidor, compilação ou dependência externa.
+A classe has-entered registra a entrada; motion-paused desativa movimento.
+Conteúdo permanece visível sem JavaScript, com movimento reduzido e na
+impressão. Não animar separadamente os títulos dentro de tópicos já animados.
+
+IMPRESSÃO
+O botão prepara o carregamento das imagens e chama window.print().
+beforeprint guarda estados, abre blocos/tópicos e expande details.
+As regras CSS de impressão também exibem os painéis das abas.
+afterprint restaura os estados de recolhimento e os details anteriores.
+
+CONTRATO ENTRE HTML E JAVASCRIPT
+IDs, classes de comportamento, data-* e relações ARIA precisam existir
+antes da inicialização. Remover um controle ou mudar seu ID exige
+ajustar as seleções e os eventos no script. O conteúdo editorial deve
+continuar no HTML, e a aparência compartilhada deve ficar no CSS.
+
+
+===============================================================================
+08. IMAGENS, MATERIAIS E LINKS
+===============================================================================
+
+IMAGENS USADAS NO HTML ATUAL
+assets/colog.png                  Favicon, menu, banner, cabeçalho e rodapé.
+assets/aac.png                    Banner e comparação AAC/COPEC.
+assets/lince.jpg                  Fotografia do diagnóstico: Lince K2.
+assets/centauro.jpg               Fotografia do diagnóstico: Centauro II.
+assets/atmos.jpg                  Fotografia do diagnóstico.
+assets/black-hawk.jpg             Fotografia do diagnóstico.
+assets/copec.png                  Identidade proposta e destino da articulação.
+assets/exercito.jpg               Frente interna da articulação.
+assets/copac.jpeg                 Frente específica da articulação.
+assets/republica.png              Frente externa da articulação.
+assets/aac_ciclo.png              Emblema da conclusão.
+assets/instalacoes-bloco-h.jpeg    Primeira foto das instalações.
+assets/instalacoes-bloco-h-1.jpeg  Segunda foto das instalações.
+
+ORIGEM DOS SÍMBOLOS ADICIONADOS NO MOD 3
+exercito.jpg: cópia de IMAGEM_SIMBOLO_EXERCITO.jpg, da pasta local
+PASTAS_AAC/APRESENTACOES_AAC/IMAGENS_APOIO.
+copac.jpeg: imagem original incorporada à apresentação local
+"Palestra sobre Financiamentos Externos_COPAC - 21 Maio 2019.pptx".
+republica.png: Portal Modelo / Interlegis, consultado em 31/10/2026:
+https://portalmodelo.interlegis.leg.br/imagens/brasao-republica.png/view
+Os três arquivos ficam locais em assets; não há dependência de rede para
+exibi-los. Preservar a proporção dos símbolos com object-fit: contain.
+
+MATERIAIS DISPONÍVEIS, SEM REFERÊNCIA NO HTML ATUAL
+COEX_metalico.png, COLOG_metalico.png, DMAT_metalico.png,
+DMAVEX_metalico.png, smem.png, triade.png e
+INSTRUCOES_ASSUNTO_CRIACAO_COPEC.docx, todos na pasta assets.
+A presença na pasta não significa que o arquivo esteja exibido na página.
+
+APRESENTAÇÃO DAS INSTALAÇÕES
+A chamada e as duas fotos abrem o mesmo endereço em nova aba, com
+rel="noopener noreferrer":
+https://docs.google.com/presentation/d/1JkycKErojcts4LJ19PaiWy_4QvDioydy/edit?usp=drive_link&ouid=106855572852831009018&rtpof=true&sd=true
+
+RODAPÉ
+Slogan: Adquirindo o futuro!
+Contato: Cel Brito — (61) 2035-5569.
+Link telefônico: tel:+556120355569.
+Data exibida nesta revisão: Última atualização: 30 de outubro de 2026 · Versão 3.
+
+
+===============================================================================
+09. MANUTENÇÃO, CONFERÊNCIA E PUBLICAÇÃO
+===============================================================================
+
+PARA ACRESCENTAR OU ALTERAR UM TÓPICO
+1. Definir bloco, número, título, data-label e ID exclusivo.
+2. Repetir o padrão de cabeçalho e corpo recolhível; atualizar os comentários.
+3. Acrescentar/ajustar o link no menu lateral e no índice do bloco.
+4. Conferir aria-controls e o ID do painel; manter os atributos de comportamento.
+5. Ao criar um bloco adicional, atualizar também a lista aria-controls do
+   botão geral, os rótulos, o percurso da introdução e este mapa documental.
+6. Reutilizar os componentes e as classes visuais existentes.
+7. Conferir navegação por hash, busca, teclado, telas menores e impressão.
+
+ANTES DE DISTRIBUIR UMA REVISÃO
+- Verificar links e arquivos locais, IDs exclusivos e numeração.
+- Testar recolhimento individual e geral, abertura pelo menu e busca.
+- Testar os controles da introdução e conclusão, a preservação dos títulos,
+  a independência do controle geral e a restauração após imprimir.
+- Conferir justificação de parágrafos/listas e as exceções de identificação.
+- Conferir menu móvel, abas, foco e movimento reduzido.
+- Confirmar fotos do Bloco H lado a lado e alinhamento da conclusão.
+- Conferir as quatro fotos dos veículos em 3:2, sem alturas fixas ou cortes,
+  em desktop, celular e impressão. Conferir dimensões intrínsecas no HTML.
+- Conferir a ordem dos controles e os rótulos nos dois estados.
+- Conferir a animação dos 13 tópicos, dos 4 blocos e da articulação.
+- Conferir as três frentes, cores do organograma e chave de ligação direta.
+- Testar destaque dos cartões de articulação por mouse, foco, clique/toque;
+  selecionar outra frente, desmarcar e limpar com Escape; conferir impressão.
+- Conferir os itens abaixo dos títulos das três fases, inclusive no celular.
+- Conferir a impressão com conteúdo aberto e com conteúdo recolhido.
+- Atualizar a data do rodapé e o LEIA-ME quando o conteúdo mudar.
+- Preservar uma cópia anterior antes de substituir arquivos.
+
+PUBLICAR NO GITHUB
+Execute ATUALIZAR_AAC_COPEC_GITHUB.bat dentro da pasta da versão que deseja
+publicar. A origem é sempre a pasta em que o BAT está localizado.
+
+CONFIGURAÇÃO FIXA — NÃO É PERGUNTADA
+Repositório: https://github.com/britointeb/aac-copec
+Conta/login: britointeb
+E-mail de identificação dos commits: britointeb@gmail.com
+Nome do autor dos commits: Brito
+Esses valores estão definidos no BAT. A configuração de autoria é aplicada
+apenas à cópia de trabalho da publicação, sem alterar o Git global.
+O Git Credential Manager reutiliza a autenticação disponível para britointeb.
+Se a sessão não existir ou precisar ser renovada, o GitHub poderá solicitar
+login no navegador. O e-mail de autoria não substitui essa autenticação.
+
+TRÊS CAMPOS ANTES DA REVISÃO
+Pressione Enter em qualquer campo para aceitar o padrão indicado:
+
+1. Título da atualização — corresponde ao campo Add files via upload.
+   Padrão: nome da pasta da versão. Nesta pasta, SITE_COPEC_V3.
+   Em uma pasta SITE_COPEC_V4, o padrão passa automaticamente a SITE_COPEC_V4.
+   O título ocupa a primeira linha da mensagem do commit.
+2. Descrição complementar — corresponde a Add an optional extended description.
+   Padrão: Brito.
+   O texto fica no corpo da mensagem, separado do título por uma linha em branco.
+   Alterar essa descrição não muda o nome/e-mail fixos do autor.
+3. Branch em que deseja publicar.
+   Padrão: main. Pode informar, por exemplo, revisao/v3.
+   Não há pergunta sobre repositório, nome do autor ou e-mail.
+
+O título e a descrição são gravados em arquivo UTF-8 antes do commit,
+preservando acentos, espaços, aspas e símbolos como texto literal.
+
+COMPORTAMENTO DA BRANCH
+- Se a branch escolhida já existe, o BAT parte do histórico dela e publica
+  somente nela. As demais branches não são alteradas.
+- Se ela não existe, é criada a partir da branch padrão do repositório.
+  Em repositório vazio, torna-se a primeira branch.
+- Uma branch nova recebe um commit de publicação, inclusive quando seu
+  conteúdo coincide com o da base. Em branch existente sem mudança de
+  arquivos, o BAT informa que não há alterações e não cria outro commit.
+- O nome é validado pelo Git; nomes inválidos encerram a operação.
+
+REVISÃO E CONFIRMAÇÃO FINAL
+O BAT prepara uma cópia de trabalho e mostra o repositório, a branch, o título,
+a descrição, a autoria, a pasta de origem e as inclusões/alterações/remoções.
+As letras significam: A = adicionado; M = modificado; D = removido;
+R = renomeado. Confira esse resumo e digite PUBLICAR para enviar.
+Enter sem PUBLICAR cancela, mantendo o repositório remoto inalterado.
+
+A publicação substitui o conteúdo atual da branch pela pasta de origem.
+Arquivos antigos ausentes nessa pasta são removidos na nova versão; o
+histórico de commits e a pasta de origem são preservados. O próprio BAT e
+diretórios .git não são enviados. Os demais arquivos/subpastas são incluídos.
+O utilitário verifica se a branch mudou durante a preparação e não força
+sobrescrita do histórico. Ao terminar, confirma o hash publicado no remoto.
+
+BACKUP E REQUISITOS
+Requer Git for Windows com Git Credential Manager. Cópias de trabalho,
+mensagem do commit e backups ficam em:
+%LOCALAPPDATA%\AAC-COPEC\Publicacoes
+Quando há histórico anterior, é criado VERSAO_ANTERIOR.bundle.
+GitHub Pages continua dependendo da configuração de publicação do próprio
+repositório; escolher outra branch não altera essa configuração.
+A consulta local do site não exige executar esse utilitário.
+
+VERIFICAÇÃO DO UTILITÁRIO
+O fluxo foi testado no Windows PowerShell 5.1 com repositórios locais:
+valores padrão e personalizados, main, branch alternativa, branch nova,
+repositório vazio, cancelamento, detecção de alteração concorrente, mensagem
+com acentos/aspas/símbolos, autoria fixa, preservação do histórico e backup.
+Esses testes não executam publicação no repositório GitHub do site.
+
+
+===============================================================================
+10. PROMPT COMPLETO PARA RECRIAR O SITE
+===============================================================================
+
+COMO USAR O PROMPT
+Copie o trecho entre INÍCIO DO PROMPT e FIM DO PROMPT. Forneça a pasta
+assets e, para preservar literalmente a redação e os detalhes atuais,
+forneça também index.html, styles.css e app.js como referências.
+
+A especificação abaixo permite reconstruir a estrutura, a identidade,
+os comportamentos e o conteúdo principal. As fotos e os emblemas originais
+precisam ser fornecidos para reproduzir os mesmos recursos visuais.
+O HTML atual é a fonte editorial para reprodução literal; uma descrição
+textual, sozinha, não garante igualdade de cada frase ou de cada pixel.
+
+------------------------------- INÍCIO DO PROMPT -------------------------------
+
+Crie um site institucional estático, responsivo e acessível em português do
+Brasil para apresentar a proposta de criação da Comissão de Obtenção de
+Produtos Estratégicos Complexos (COPEC), a partir da experiência da
+Assessoria de Aquisições Complexas (AAC), no Comando Logístico (COLOG).
+
+ENTREGA E FONTES
+Entregue uma pasta completa com index.html, um único styles.css, app.js,
+assets/ e LEIA-ME.txt. Use HTML5, CSS e JavaScript nativos, com caminhos
+relativos e funcionamento local ao abrir index.html. Organize os arquivos
+sem exigir instalação, framework, banco de dados ou build. Carregue app.js
+com defer. Use UTF-8 e lang="pt-BR".
+
+Quando os arquivos atuais forem fornecidos como referência, preserve sua
+redação, imagens, links, notas e dados institucionais. Use o index.html
+como fonte editorial e as instruções deste prompt como especificação de
+estrutura e comportamento. Preserve o caráter de proposta, as ressalvas
+sobre o ato de criação e a indicação de alocação de pessoal sujeita à
+validação. As etapas históricas abaixo refletem o conteúdo fornecido;
+não substitua datas ou denominações por suposições.
+
+Use os emblemas e as fotografias originais de assets. Se algum arquivo
+necessário não tiver sido fornecido, identifique-o na entrega e mantenha
+a estrutura correspondente preparada para recebê-lo, sem inventar um
+brasão ou trocar a fotografia por outra de significado diferente.
+
+Trabalhe apenas nos arquivos locais. A publicação no GitHub constitui uma
+etapa separada. Se houver um BAT de publicação fornecido, preserve-o sem
+executá-lo durante a geração do site.
+Para recriar esse utilitário, use repositório fixo britointeb/aac-copec,
+login britointeb, e-mail britointeb@gmail.com e autoria Brito. Pergunte somente
+os dados da atualização: título (padrão: nome da pasta da versão), descrição
+complementar (padrão: Brito) e branch (padrão: main). Mostre a revisão dos
+arquivos e desses campos antes da confirmação final PUBLICAR. Preserve o
+histórico, os backups e a verificação de concorrência. Grave a mensagem por
+arquivo UTF-8, usando título e corpo separados por uma linha em branco.
+Uma branch existente deve usar seu próprio histórico; uma branch nova deve
+partir da branch padrão remota, ou iniciar o histórico de repositório vazio.
+
+IDENTIDADE VISUAL
+Use fundo branco, superfícies cinza/azul muito claro, bordas discretas,
+texto escuro, azul institucional e detalhes dourados. Referências:
+texto #292e32; superfície #f1f6f9; faixas de bloco #eaf1f6;
+azul #2e5873; dourado #e5c85b e #806110; amarelo claro #fff7d6.
+Cabeçalho e banner institucional pretos, com textos claros; rodapé #101010.
+
+Corpo em Arial/Helvetica/sans-serif. Títulos na pilha local
+"Arial Rounded MT Bold", "Arial Rounded MT", "Trebuchet MS", Arial,
+sans-serif. Use rótulos pequenos em Arial, com espaçamento entre letras,
+e títulos maiores com leitura confortável. Evite dependência de fontes web.
+
+ESTRUTURA PERMANENTE E RESPONSIVIDADE
+No cabeçalho, use esta ordem visual e de teclado: Imprimir — Recolher
+Blocos/Tópicos — Recolher Menu Lateral — lupa da busca. Os três botões de
+texto devem ter a mesma borda dourada, altura, hover e foco visível.
+No estado fechado, use Expandir Blocos/Tópicos ou Exibir Menu Lateral.
+Até 700px, acomode os controles em duas linhas num cabeçalho de 92px.
+Crie menu lateral fixo e rolável, cabeçalho fixo com ferramentas à direita,
+barra de progresso da leitura e rodapé. O conteúdo terá contêiner .wrap
+com largura máxima de 1220px e margens que diminuem nas telas menores.
+
+No desktop, reserve a largura do menu no conteúdo e no rodapé. Use menu
+de 244px como padrão, 222px entre 1101 e 1300px e 278px a partir de
+1550px; cabeçalho de 49px. Até 1100px, use menu sobreposto de 278px,
+cabeçalho de 62px e conteúdo sem coluna lateral reservada. Ofereça botão
+para exibir/recolher o menu e fundo clicável para fechá-lo no celular.
+
+Organize os tópicos com número destacado, rótulo contextual, título e
+apoio. No desktop, use coluna numérica de 76px, coluna de título e coluna
+de apoio; até 800px, mova o apoio para baixo; até 560px, reduza número,
+margens e espaçamentos. Evite sobreposição entre controles e títulos.
+Até 640px, empilhe as etapas do diagrama e aponte as setas para baixo.
+
+BANNER E INTRODUÇÃO — #inicio
+Use assets/colog.png à esquerda e assets/aac.png à direita do banner.
+No centro, apresente:
+COMANDO LOGÍSTICO
+ASSESSORIA DE AQUISIÇÕES COMPLEXAS (AAC)
+PROPOSTA DE CRIAÇÃO DA
+COMISSÃO DE OBTENÇÃO DE PRODUTOS ESTRATÉGICOS COMPLEXOS (COPEC).
+
+A introdução não tem número. Seu rótulo INTRODUÇÃO é alinhado à esquerda
+com um ponto dourado. No canto superior direito, inclua Recolher introdução,
+alternando para Expandir introdução. Preserve rótulo e título ao recolher;
+oculte descrição, diagrama e percurso. O banner institucional fica visível.
+O título é Criação da COPEC, seguido do nome completo.
+Explique a evolução da assessoria técnica para uma estrutura executiva
+permanente, ligada diretamente ao Comandante Logístico, capaz de gerir a
+complexidade crescente dos processos de obtenção de SMEM de prateleira.
+Use uma coluna principal e limite a descrição a aproximadamente 85ch.
+Essa abertura não deve conter os antigos atalhos Conhecer o diagnóstico
+e Explorar a proposta.
+
+Substitua a antiga figura de SMEM por um diagrama de texto em HTML.
+A faixa cronológica superior é:
+ANTES DE 2022 (1) → DE 2022 ATÉ 2025 (2) → A PARTIR DE 2025 (3) → ... (4).
+
+Crie quatro cartões ligados por setas douradas:
+1. ANTES DA REESTRUTURAÇÃO: COLOG (APPCO), D MAT, D M Av Ex.
+2. APÓS A REESTRUTURAÇÃO: COEx, C Mat, C M Av Ex.
+3. ATUALMENTE: COEx, C Mat, C M Av Ex, AAC.
+4. FUTURO: COPEC.
+Realce AAC com fundo vermelho e texto branco; realce COPEC em amarelo
+claro. A legenda será Evolução da articulação institucional até a COPEC.
+
+Após a apresentação, mostre o percurso com links para os quatro blocos.
+
+BLOCOS, TÓPICOS E CONTEÚDO
+Cada bloco deve ter faixa azul clara, número em quadro branco com detalhe
+dourado, título, descrição, índice dos tópicos e botão no canto superior
+direito. Cada tópico terá seu próprio botão à direita acima do cabeçalho.
+Comente o HTML para identificar o mapa da página e o início/fim de blocos
+e tópicos. Preserve os seguintes destinos:
+
+BLOCO 1 — DIAGNÓSTICO, #bloco-1.
+1.1 Diagnóstico histórico, #historico.
+Apresente aquisições isoladas, conhecimento compartimentado e experiência
+individualizada; atuação separada das Chefias e aprendizado sem retenção
+sistemática no COLOG. Mostre fotografias de VTML Lince K2, VBC Cav 8x8
+Centauro II, VBC OAP 155 mm Atmos e UH-2A (UH-60M) Black Hawk, usando
+lince.jpg, centauro.jpg, atmos.jpg e black-hawk.jpg.
+Aplique .copec-photo, com aspect-ratio: var(--photo-ratio, 3 / 2),
+width: 100%, height: auto e object-fit: contain. A proporção é largura 12
+por altura 8. Preserve toda a foto, sem alturas fixas por tamanho de tela.
+Informe width/height reais dos arquivos no HTML. Para outras fotografias,
+configure --photo-ratio; use .copec-photo--natural para a proporção original.
+Inclua fluxo das Chefias
+atuando isoladamente e três cartões: Padronização insuficiente;
+Retrabalho e dispersão; Exposição ao controle.
+
+1.2 Limites do modelo, #limites.
+Mostre a preparação concentrada nas Chefias e a intervenção tardia do
+COEx. O fluxo possui Origem compartimentada/ Chefias do COLOG;
+Intervenção tardia/ COEx; Consequência/ Ineficiência de Esforços.
+Use respectivamente rótulos dourado, laranja e vermelho. Inclua chamada
+para integrar competências desde o início e cartões sobre ciclo completo,
+estrutura física e recursos humanos.
+
+BLOCO 2 — BASE TÉCNICA, #bloco-2.
+2.1 A AAC como embrião, #aac.
+Mostre a estrutura atual de 1 Oficial-General + 4 Oficiais Superiores,
+com nota de que um dos quatro ainda aguarda apresentação. Explique
+assessoramento direto, planejamento estruturado e gerenciamento integrado.
+Crie cinco abas do grupo pilares: Planejamento; Gerenciamento;
+Ciclo de vida; Fiscalização; Padronização e conhecimento.
+Inclua portfólio expansível com Aviação do Exército, Força Blindada,
+Defesa Antiaérea e Nova Geração de Blindados, além da lista de frentes
+simultâneas de trabalho preservada da fonte editorial.
+
+2.2 Capacitação científica, #capacitacao.
+Apresente as contribuições dos estudos de Cel Lauria, sobre decisão
+multicritério/MCDM; Cel Brito, sobre modelagem do processo do ETP ao término
+do contrato; Maj Jennifer, sobre gestão de riscos a partir de processos
+pretéritos e apontamentos do controle. Encerre com a chamada de conhecimento
+especializado como capacidade institucional. Preserve títulos e detalhes
+dos estudos quando os arquivos de referência forem fornecidos.
+
+2.3 Articulação e COPAC, #referencia.
+Trate da liderança por Oficial-General e da experiência orçamentário-
+financeira de General de Intendência oriundo da chefia da AOFin e da 6ª SCh/EME.
+Preserve o texto da liderança. Abaixo, crie ARTICULAÇÃO com três cartões
+azul-claros, seguindo o mesmo padrão do diagrama de evolução: borda
+superior azul, rótulo dourado em maiúsculas e caixas internas brancas.
+INTERNA reúne o símbolo do Exército e Cmt Log, Chefias, COEx e ODS / ODG
+numa área amarelo-clara. ESPECÍFICA apresenta o brasão da COPAC, COPAC · FAB
+e Referência interforças. EXTERNA apresenta o brasão da República,
+República Federativa do Brasil e Articulação externa.
+Conecte as três frentes ao cartão COPEC abaixo, em amarelo claro, com seu
+emblema e nome. Use elementos HTML e pseudoelementos CSS para as linhas
+douradas de convergência; as frentes são paralelas, não uma sequência.
+Somente os brasões devem ser imagens. Mantenha as três colunas no celular
+e adapte dimensões e tipografia em 700px e 480px.
+Use botões nativos nos cartões. Mouse/foco destaca a ligação; clique,
+Enter e Espaço fixam a seleção; outro clique no mesmo cartão ou Escape
+limpa a seleção. Atualize aria-pressed e uma legenda com role=status.
+Anime símbolos, conexões e destino na primeira visualização, respeitando
+pausa, movimento reduzido e impressão. Imprima todos os cartões sem
+destaque de seleção. Sem JavaScript, exiba o quadro completo e mantenha
+a seleção desabilitada. Use HTML/CSS/JavaScript locais, sem exigir React.
+
+BLOCO 3 — PROPOSTAS DA COPEC, #bloco-3.
+3.1 Identidade da COPEC, #identidade.
+Compare AAC como apoio técnico/assessoramento com COPEC como órgão
+executivo central e permanente, ligado ao Comandante Logístico e capaz
+de representação perante a BIDS nacional e internacional. Use os símbolos
+AAC e COPEC. Apresente cinco atalhos internos de propostas: Identidade,
+Estrutura, Ciclo completo, Fiscalização e Pessoal, usando os destinos
+correspondentes do conteúdo.
+
+3.2 Estrutura e núcleos, #estrutura.
+Construa o organograma com HTML: Comandante Logístico → Presidência da
+COPEC (Oficial-General) → Vice-Presidência → Divisão de Coordenação e
+Integração + Divisão Administrativa e Apoio. Preencha Comandante Logístico
+com #ffc000 e Presidência com #00b0f0; use texto escuro legível. Mantenha
+Vice-Presidência e divisões em cinza claro e conectores dourados. À direita
+dos dois primeiros níveis, desenhe uma chave laranja e o rótulo
+"Em Ligação Direta". Não reproduza as anotações de edição da imagem de
+referência. Crie as abas do grupo nucleos:
+Planejamento e riscos; Orçamentário e financeiro; Suporte logístico
+integrado; Offset e precificação; Acompanhamento e controle.
+Indique ativação dos núcleos por demanda. A nota do organograma deve
+explicar seu caráter funcional e proposto e remeter o detalhamento de
+subordinações e atribuições ao ato de criação.
+
+3.3 Guarda do processo, #ciclo.
+Explique a condução contínua pela COPEC em articulação com Chefias e
+COEx até a extinção contratual e a consolidação de evidências finais.
+Use as abas do grupo fases: Demanda e ETP; Propostas e finanças;
+Compensações; Planejamento logístico; Prestação de contas.
+
+3.4 Marco de transferência, #transicao.
+No quadro ÂMBITO DE CONDUÇÃO DA COPEC, organize três colunas e mantenha
+os itens sempre abaixo do título da respectiva fase, usando listas ul/li:
+- Fase Preparatória: Prospecção/Refinamento; ETP+RISCOS+TR;
+  Consulta/Audiência+Pré-qualificação+PMI.
+- Fase Externa: Seleção; Contratação (SMEM+SLI+OFFSET+FINANCEIRO).
+- Transição para as Chefias: Gestão e Fiscalização dos Contratos;
+  Acompanhamento do Ciclo de Vida.
+Use sinais + entre as fases. Até 700px, empilhe as fases verticalmente. O marco de transferência é a
+conclusão e o ateste formal do Suporte Logístico Inicial. Antes do marco,
+a condução cabe à COPEC; após o marco, às Chefias de Material.
+A entrega física, isoladamente, não aciona a transferência integral.
+Crie as abas marco: Antes do ateste e Depois do ateste. Mostre quatro
+evidências: previsto × realizado; disponibilidade comprovada;
+registros/homologações; resultados de compensações. Preserve a distinção
+entre Suporte Logístico Inicial e Suporte Logístico Integrado.
+
+3.5 Efetivo de 21 militares, #pessoal.
+Mostre 1 Oficial-General + 10 Oficiais Superiores + 6 Tenentes + 4 Praças.
+Inclua tabela de alocação expressamente indicativa, sujeita à validação:
+Presidência: 1 OG.
+Vice-Presidência: 1 OS.
+Coordenação e Integração: 2 OS + 1 Tenente.
+Planejamento e Riscos: 2 OS + 1 Tenente.
+Orçamentário e Financeiro: 1 OS + 1 Tenente.
+Suporte Logístico Integrado: 1 OS + 1 Tenente.
+Offset e Precificação: 1 OS + 1 Tenente.
+Acompanhamento e Controle: 1 OS + 1 Tenente + 1 Praça.
+Administrativa e Apoio: 1 OS + 3 Praças.
+Confira o total de 21 e preserve a nota de capacitação permanente.
+
+3.6 Formalização e instalações, #normas.
+Apresente a sequência Revisão das IR → Criação e atribuições →
+Procedimentos comuns, com os pontos a esclarecer no ato de criação:
+vínculo e autoridade, direção/divisões/núcleos, relações com os demais
+órgãos, guarda do processo, fiscalização, transferência, pessoal e
+condições de funcionamento.
+
+Inclua o quadro #instalacoes com rótulo INSTALAÇÕES PROPOSTAS · BLOCO H ·
+4º PISO, título Novos desafios, novas instalações... e chamada para
+conhecer a proposta. Use instalacoes-bloco-h.jpeg e
+instalacoes-bloco-h-1.jpeg. As duas fotos devem permanecer lado a lado
+em todas as larguras, usando grade de duas colunas, largura de 100%
+e altura automática, usando .copec-photo.copec-photo--natural. Preserve a
+proporção original também na impressão e não imponha altura fixa ou máxima.
+A chamada e o conjunto de fotos abrem em nova aba:
+https://docs.google.com/presentation/d/1JkycKErojcts4LJ19PaiWy_4QvDioydy/edit?usp=drive_link&ouid=106855572852831009018&rtpof=true&sd=true
+Use rel="noopener noreferrer".
+
+BLOCO 4 — RESULTADOS, #bloco-4.
+4.1 Impacto estratégico, #impacto.
+Apresente segurança jurídica apoiada em método, registros, conformidade
+e análises robustas, além da desoneração das Chefias para suprimento,
+manutenção e prontidão. Preserve a observação de que criar uma estrutura,
+por si só, não elimina riscos nem a atuação dos órgãos de controle.
+
+4.2 Estado final desejado, #estado-final.
+Trate de sustentabilidade institucional, domínio do ciclo de vida e
+poder de combate, vinculando obtenção e sustentação à entrega da capacidade.
+
+CONCLUSÃO INDEPENDENTE, #conclusao.
+Posicione-a depois de 4.2 e fora dos painéis recolhíveis dos blocos.
+Crie linha separadora no conteúdo e no menu. O link do menu deve apontar
+para #conclusao. Use rótulo CONCLUSÃO à esquerda com o mesmo ponto dourado
+da INTRODUÇÃO. Use o mesmo fundo branco, tipografia, título escuro e margens
+da introdução. Mantenha o título fora do painel recolhível e inclua Recolher
+conclusão no canto superior direito, alternando para Expandir conclusão.
+Preserve assets/aac_ciclo.png e o título:
+Transformar experiência e proficiência em expertise,
+proporcionando a capacidade almejada permanentemente.
+Inclua o texto de conexão entre necessidade, obtenção, apoio logístico
+e comprovação dos resultados. O botão Rever as cinco propostas aponta
+para #identidade. Emblema, texto de apoio e botão ficam no painel
+#conteudo-conclusao. Não retirar nenhum desses conteúdos. O título deve
+usar a mesma classe .copec-reading-title da introdução.
+
+GLOSSÁRIO E RODAPÉ
+Em #referencias, use details/summary para Abreviaturas/Glossário.
+Inclua AAC, COPEC, COEx, EPEx, ETP, SMEM, SLI, BIDS, MCDM, IR e ODS / ODG,
+mais definições de guarda do processo, transferência, compensações e
+estrutura por demanda, preservadas da fonte editorial quando fornecida.
+No rodapé, use a identidade COLOG-AAC, Adquirindo o futuro!, contato
+Cel Brito — (61) 2035-5569 com tel:+556120355569, data de atualização,
+Versão 3 e link Voltar ao início.
+
+COMPORTAMENTOS OBRIGATÓRIOS
+1. Blocos e tópicos começam abertos. Os controles de recolhimento ficam
+   ocultos no HTML até o JavaScript inicializar.
+2. Recolher bloco oculta os tópicos, mantendo cabeçalho e índice; reabrir
+   preserva o estado individual dos tópicos.
+3. Recolher tópico oculta seu corpo, mantendo o cabeçalho.
+4. O controle geral governa os quatro blocos e treze tópicos. Se qualquer
+   painel estiver fechado, oferece Expandir Blocos/Tópicos; se todos estiverem
+   abertos, oferece Recolher Blocos/Tópicos. Introdução, conclusão e glossário
+   ficam fora desse controle geral. Introdução e conclusão têm controles
+   independentes com data-collapse="section". Abrir um destino pela busca,
+   menu ou #hash reabre a seção necessária. A impressão abre todos os 19
+   painéis e restaura os estados anteriores ao fechar a prévia.
+5. Use botões nativos com aria-controls, aria-expanded, contexto acessível,
+   texto e ícone +/− sincronizados. Preserve foco visível e evite ocultar
+   o elemento que mantém o foco sem transferi-lo para um controle visível.
+6. Links internos, menu, busca e acesso direto com #hash reabrem os
+   painéis do destino antes da navegação e compensam o cabeçalho fixo.
+7. A barra lateral identifica o assunto ativo e o progresso acompanha
+   a rolagem. No modo móvel, a seleção fecha o menu, Escape fecha o painel
+   e Tab mantém o percurso de foco no menu aberto.
+8. Abas usam role="tablist", role="tab", role="tabpanel", aria-selected,
+   tabindex e relações por ID. Suportam clique, toque, setas, Home e End.
+9. Busca em dialog, aberta pela lupa ou /, normaliza acentos e caixa,
+   filtra pelo conjunto de palavras e leva o foco ao título selecionado.
+10. Anime todos os 13 tópicos com entrada de baixo para cima (15px, 0,65s).
+    Para os quatro blocos, use entrada lateral (24px, escala 0,98, 0,7s).
+    Acione uma vez ao entrar na janela. Respeite prefers-reduced-motion e
+    ofereça Pausar/Ativar animações. Sem JavaScript, tudo deve ficar visível.
+11. Na impressão, prepare as imagens, abra os painéis e details, mostre
+    os conteúdos das abas e esconda controles/menu/cabeçalho. Restaure
+    os estados anteriores ao encerrar a impressão. Preserve a identidade
+    escura do banner e as duas fotos das instalações lado a lado.
+
+JUSTIFICAÇÃO E ORGANIZAÇÃO DO CSS
+Justifique parágrafos e listas de texto com text-align: justify e
+text-justify: inter-word. Preserve à esquerda os rótulos de seção e mantenha
+centralizados os textos institucionais do banner e os identificadores dos
+diagramas. Títulos e botões conservam seu alinhamento próprio.
+Use uma única folha styles.css. Reúna as declarações de cada seletor em um
+único par de chaves por contexto sempre que possível. Organize os seletores
+alfabeticamente em blocos compatíveis com a cascata. Preserve exceções de
+precedência, estados, media queries e a ordem de propriedades abreviadas e
+individuais. Elimine regras herdadas sem uso e declarações sobrescritas após
+conferir o HTML e as classes/estados gerados pelo JavaScript.
+
+ORGANIZAÇÃO TÉCNICA
+No HTML, mantenha um mapa comentado e comentários de início/fim de blocos
+e tópicos. Use IDs exclusivos e o padrão de grupos:
+grupo-bloco-N; bloco-N; conteudo-bloco-N; assunto; conteudo-assunto.
+Use data-block, data-number, data-label, data-collapse,
+data-collapse-panel e data-collapse-context de forma coerente.
+Mantenha os textos no HTML e os comportamentos no JavaScript.
+
+Reúna a aparência em um único styles.css, organizado por seções comentadas:
+base/componentes; identidade COLOG; conteúdo COPEC; organização dos blocos
+e superfícies; controles de leitura e evolução institucional.
+Ao usar o CSS atual como referência, preserve a ordem e a precedência
+das regras e considere especificidade, mídia e impressão antes de limpar
+seletores repetidos. Não crie folhas adicionais por versão.
+
+Documente o papel de HTML, CSS e JavaScript no LEIA-ME, com instruções
+para abrir, editar e conferir a entrega. Preserve os materiais disponíveis
+em assets, distinguindo arquivos usados na página de referências extras.
+
+CONFERÊNCIA DA ENTREGA
+Confira os quatro blocos, treze tópicos, destinos do menu e da busca,
+IDs, referências ARIA, arquivos de imagens, contraste e foco. Verifique
+recolhimento geral/individual, links para destinos fechados, abas, menu
+móvel, movimento reduzido e impressão. Confira desktop e larguras menores,
+inclusive 320px e 375px, com atenção ao diagrama e às fotos do Bloco H.
+Informe quais verificações foram executadas e qualquer limite observado.
+
+-------------------------------- FIM DO PROMPT --------------------------------

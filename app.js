@@ -13,6 +13,99 @@
     element.classList.remove('revealing');
     requestAnimationFrame(() => element.classList.add('revealing'));
   }
+
+  // V3: cada botão controla um painel. O bloco preserva o estado de seus tópicos.
+  const collapseButtons = $$('[data-collapse]');
+  // O controle geral mantém seu escopo: blocos/tópicos; abertura e fechamento da página têm controles próprios.
+  const blockTopicButtons = collapseButtons.filter(button => button.dataset.collapse !== 'section');
+  const collapseAllButton = $('#collapse-all');
+  const collapsePanel = button => document.getElementById(button.getAttribute('aria-controls'));
+
+  function setExpanded(button, expanded) {
+    const panel = collapsePanel(button);
+    const action = expanded ? 'Recolher' : 'Expandir';
+    const kind = button.dataset.collapseLabel || (button.dataset.collapse === 'block' ? 'bloco' : 'tópico');
+    // Retira o foco do conteúdo antes de ocultá-lo, inclusive para uso por teclado.
+    if (!expanded && panel.contains(document.activeElement)) button.focus({ preventScroll: true });
+    panel.hidden = !expanded;
+    button.setAttribute('aria-expanded', String(expanded));
+    button.setAttribute('aria-label', `${action} ${button.dataset.collapseContext}`);
+    button.querySelector('.collapse-label').textContent = `${action} ${kind}`;
+    button.querySelector('.collapse-icon').textContent = expanded ? '−' : '+';
+    if (kind === 'tópico') button.closest('.chapter').classList.toggle('is-collapsed', !expanded);
+    if (button.dataset.collapse === 'section') button.closest('.section').classList.toggle('is-section-collapsed', !expanded);
+  }
+
+  function syncCollapseAll() {
+    const allExpanded = blockTopicButtons.every(button => button.getAttribute('aria-expanded') === 'true');
+    collapseAllButton.setAttribute('aria-expanded', String(allExpanded));
+    collapseAllButton.textContent = allExpanded ? 'Recolher Blocos/Tópicos' : 'Expandir Blocos/Tópicos';
+    collapseAllButton.setAttribute('aria-label', `${allExpanded ? 'Recolher' : 'Expandir'} todos os blocos e tópicos`);
+  }
+
+  function revealDestination(target) {
+    if (!target) return;
+    collapseButtons.forEach(button => {
+      const panel = collapsePanel(button);
+      const topic = button.dataset.collapse === 'topic' && button.closest('.chapter') === target;
+      const block = button.dataset.collapse === 'block' && button.closest('.copec-block-divider') === target;
+      const section = button.dataset.collapse === 'section' && button.closest('.section') === target;
+      if (topic || block || section || panel === target || panel.contains(target)) setExpanded(button, true);
+    });
+    syncCollapseAll();
+  }
+
+  collapseButtons.forEach(button => {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') !== 'true';
+      setExpanded(button, expanded);
+      syncCollapseAll();
+      queueScroll();
+      announce(`${button.dataset.collapseContext}: ${expanded ? 'expandido' : 'recolhido'}.`);
+    });
+  });
+  collapseAllButton.hidden = false;
+  collapseAllButton.addEventListener('click', () => {
+    const expanded = blockTopicButtons.some(button => button.getAttribute('aria-expanded') !== 'true');
+    blockTopicButtons.forEach(button => setExpanded(button, expanded));
+    syncCollapseAll();
+    queueScroll();
+    announce(`Todos os blocos e tópicos foram ${expanded ? 'expandidos' : 'recolhidos'}.`);
+  });
+  syncCollapseAll();
+
+  // Menu, índices e links internos reabrem o destino antes do salto da âncora.
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (link?.hash) revealDestination(document.getElementById(decodeURIComponent(link.hash.slice(1))));
+  }, true);
+  function revealHash() {
+    let identifier;
+    try { identifier = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+    const target = document.getElementById(identifier);
+    if (!target) return;
+    revealDestination(target);
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ block: 'start', behavior: 'instant' });
+      queueScroll();
+    });
+  }
+  window.addEventListener('hashchange', revealHash);
+  requestAnimationFrame(revealHash);
+
+  // A impressão exibe todo o conteúdo e restaura a leitura ao fechar a prévia.
+  let collapseBeforePrint = [];
+  window.addEventListener('beforeprint', () => {
+    collapseBeforePrint = collapseButtons.map(button => [button, button.getAttribute('aria-expanded') === 'true']);
+    collapseButtons.forEach(button => setExpanded(button, true));
+    syncCollapseAll();
+  });
+  window.addEventListener('afterprint', () => {
+    collapseBeforePrint.forEach(([button, expanded]) => setExpanded(button, expanded));
+    syncCollapseAll();
+    queueScroll();
+  });
   // Os painéis permanecem no HTML, com seleção por mouse, toque e teclado.
   function setupTabs(attribute) {
     const tabs = $$(`[${attribute}]`);
@@ -104,14 +197,61 @@
   motionButton.addEventListener('click', () => { motionPaused = !motionPaused; syncMotion(); });
   reducedMotion.addEventListener('change', () => { motionPaused = reducedMotion.matches; syncMotion(); });
   syncMotion();
-  if ('IntersectionObserver' in window && !motionPaused) {
+  // MOD 3: entrada uniforme dos 13 tópicos; faixas dos 4 blocos têm movimento próprio.
+  // Observar a interseção inicial (threshold 0) também atende tópicos muito altos.
+  if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('has-entered'); revealObserver.unobserve(entry.target); }
-    }), { threshold: 0.06 });
-    $$('.chapter-heading, .subsection-heading, .wide-takeaway, .decision-quote, .conclusion').forEach(item => {
-      item.classList.add('reveal-ready'); revealObserver.observe(item);
-    });
+      if (entry.isIntersecting) {
+        entry.target.classList.add('has-entered');
+        revealObserver.unobserve(entry.target);
+      }
+    }), { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+    const observeEntry = (item, type) => {
+      item.classList.add('reveal-ready');
+      if (type) item.classList.add(type);
+      if (motionPaused) item.classList.add('has-entered');
+      revealObserver.observe(item);
+    };
+    $$('.chapter > .wrap').forEach(item => observeEntry(item, 'copec-topic-reveal'));
+    $$('.copec-block-divider > .wrap').forEach(item => observeEntry(item, 'copec-block-reveal'));
+    $$('.copec-articulation-map').forEach(item => observeEntry(item, 'copec-diagram-reveal'));
+    $$('.subsection-heading, .wide-takeaway, .decision-quote, .conclusion').forEach(item => observeEntry(item));
   }
+
+  // Cartões de articulação: mouse/foco mostram a conexão; clique/toque fixa a seleção.
+  $$('.copec-articulation-map').forEach(diagram => {
+    const cards = [...diagram.querySelectorAll('[data-articulation]')];
+    const caption = diagram.querySelector('#articulation-status');
+    const defaultCaption = caption.textContent;
+    const descriptions = {
+      interna: 'Articulação interna: Cmt Log, Chefias, COEx e ODS / ODG → COPEC.',
+      especifica: 'Articulação específica: referência interforças da COPAC · FAB → COPEC.',
+      externa: 'Articulação externa: República Federativa do Brasil → COPEC.'
+    };
+    let selected = '';
+    const highlight = key => {
+      diagram.dataset.active = key;
+      cards.forEach(card => card.classList.toggle('is-highlighted', card.dataset.articulation === key));
+    };
+    const select = key => {
+      selected = key;
+      cards.forEach(card => card.setAttribute('aria-pressed', String(card.dataset.articulation === selected)));
+      caption.textContent = descriptions[selected] || defaultCaption;
+      highlight(selected);
+    };
+    diagram.querySelector('.articulation-hint').hidden = false;
+    cards.forEach(card => {
+      card.disabled = false;
+      card.addEventListener('pointerenter', () => highlight(card.dataset.articulation));
+      card.addEventListener('pointerleave', () => highlight(selected));
+      card.addEventListener('focus', () => highlight(card.dataset.articulation));
+      card.addEventListener('blur', () => highlight(selected));
+      card.addEventListener('click', () => select(selected === card.dataset.articulation ? '' : card.dataset.articulation));
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Escape') { event.preventDefault(); select(''); }
+      });
+    });
+  });
 
   // Abre a bibliografia antes de navegar a uma referência recolhida.
   $$('a[href^="#ref-"]').forEach(link => link.addEventListener('click', () => {
@@ -134,13 +274,13 @@
     document.body.classList.toggle('sidebar-collapsed', !compactNav.matches && !expanded);
     document.body.classList.toggle('menu-open', compactNav.matches && expanded);
     backdrop.hidden = !compactNav.matches || !expanded;
-    const action = expanded ? 'Recolher barra lateral' : 'Exibir barra lateral';
+    const action = expanded ? 'Recolher Menu Lateral' : 'Exibir Menu Lateral';
     [menu, navToggle].forEach(button => {
       button.setAttribute('aria-expanded', String(expanded));
       button.setAttribute('aria-label', action);
       button.setAttribute('title', action);
     });
-    menu.querySelector('.menu-label').textContent = expanded ? 'Recolher menu' : 'Exibir menu';
+    menu.querySelector('.menu-label').textContent = action;
     navToggle.querySelector('.nav-toggle-icon').textContent = expanded ? '−' : '+';
     if (!expanded && sidebar.contains(document.activeElement)) menu.focus({ preventScroll: true });
   }
@@ -184,7 +324,7 @@
     const available = document.documentElement.scrollHeight - innerHeight;
     $('#page-progress').style.width = `${available > 0 ? Math.min(100, Math.round(scrollY / available * 100)) : 0}%`;
     let active = 'inicio';
-    scrollTargets.forEach(section => { if (section.getBoundingClientRect().top < 180) active = section.id; });
+    scrollTargets.forEach(section => { if (section.getClientRects().length && section.getBoundingClientRect().top < 180) active = section.id; });
     const activeBlock = document.getElementById(active).dataset.block;
     $$('.nav-block').forEach(group => group.classList.toggle('is-current', group.dataset.block === activeBlock));
     $$('#main-nav a').forEach(link => {
@@ -225,6 +365,7 @@
       content.append(label, title); result.append(number, content);
       result.addEventListener('click', () => {
         const target = document.getElementById(section.id);
+        revealDestination(target);
         search.close();
         location.hash = section.id;
         target.querySelectorAll('.reveal-ready').forEach(item => item.classList.add('has-entered'));
