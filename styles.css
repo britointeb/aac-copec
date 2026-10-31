@@ -268,7 +268,7 @@
   gap: 8px;
   grid-template-columns: repeat(2,minmax(0,1fr));
   padding: 8px;
-  background: #fff7d6;
+  background: var(--copec-green);
 }
 
 .articulation-members>span {
@@ -1326,9 +1326,9 @@
 
 /* 04 — REGRAS GERAIS — ORDEM ALFABÉTICA */
 .copec-history-destination {
-  background: #fff7d6;
-  border-color: #d8c77f;
-  border-top-color: #b59a45;
+  background: #35ff67;
+  border-color: #005312;
+  border-top-color: #0f4600;
 }
 
 .copec-history-stage h2 {
@@ -1917,7 +1917,7 @@
 
 .copec-staff .copec-total strong {
   font-size: 57px;
-  color: #2e5873;
+  color: #ff0000;
 }
 
 .copec-staff span {
@@ -2046,7 +2046,7 @@
 
 .copec-table tfoot td:last-child {
   font-size: 20px;
-  color: #29475c;
+  color: #f90000;
 }
 
 .copec-table tfoot th {
